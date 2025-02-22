@@ -1,0 +1,102 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Custom navbar styles */
+.custom-navbar {
+    background-color: #80DEEA !important; /* Sky blue */
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+    color: #fff !important; /* White text for navbar items */
+}
+
+.custom-navbar .navbar-brand:hover, 
+.custom-navbar .nav-link:hover {
+    color: #FF80AB !important; /* Pink on hover for contrast */
+}
+
+/* Ensure navbar links are white */
+.custom-navbar-nav .nav-link {
+    color: #fff !important; /* Ensuring the links are white */
+}
+
+.menu-item {
+    cursor: pointer;
+    text-align: center;
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.modal-content {
+    max-height: 90vh; /* Increased modal height */
+    overflow-y: auto; /* Enable vertical scroll if content exceeds the height */
+    width: 90%; /* Increased the modal width for better appearance */
+}
+
+.modal-img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10; /* Ensure header stays on top */
+}
+
+.left-col {
+    position: sticky;
+    top: 0;
+    z-index: 9; /* Ensures the image stays in view when scrolling */
+}
+
+.right-col {
+    max-height: 60vh;
+    overflow-y: auto; /* Allows scrolling for the right column */
+}
+
+.item-description {
+    font-size: 16px;
+    font-style: italic; /* Added stylish italics */
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+/* Custom footer styles */
+.custom-footer {
+    background-color: #FF80AB !important; /* Pink Footer */
+    color: #fff !important; /* White text in footer */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.custom-footer a {
+    margin: 0 10px;
+    color: #fff !important; /* White links */
+}
+
+.custom-footer a:hover {
+    color: #FFCC80 !important; /* Light orange hover effect on footer links */
+}
+
+.form-check-label {
+    font-size: 16px; /* Increased font size for checkboxes */
+    font-weight: normal;
+    color: #555;
+    padding-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 100%;
+    }
+}
