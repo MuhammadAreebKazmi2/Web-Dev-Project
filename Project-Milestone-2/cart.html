@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Treats - Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Custom styles for the layout */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #f8f9fa;
+        }
+        .custom-navbar {
+            padding: 10px;
+        }
+        .custom-footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .left-section {
+            width: 50%;
+            padding-right: 10px;
+        }
+        .right-section {
+            width: 40%;
+            padding-left: 10px;
+        }
+        .item-section {
+            margin-bottom: 20px;
+        }
+        .item {
+            background-color: #f8d7da;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .bill-section {
+            background-color: #ffeeba;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .footer-buttons a {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sweet Treats</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Left Section (Items + Delivery Details) -->
+        <div class="left-section">
+            <!-- Items Section -->
+            <div class="item-section">
+                <div class="item">
+                    <img src="shake-pic.jpg" alt="Super Chocolate Bliss Shake" class="img-fluid" style="height:20%; width: 20%;">
+                    <h4>Super Chocolate Bliss Shake</h4>
+                    <p>Velvety chocolate ice cream blended with milk and chocolate chips to create a rich, creamy treat, topped with fluffy whipped cream and a drizzle of decadent chocolate sauce.</p>
+                    <input type="number" id="item1Qty" value="1" min="1" onchange="calculateBill()">
+                    <span>Price: Rs.800</span>
+                </div>
+                <div class="item">
+                    <img src="vanilla-soft-serve.avif" alt="Vanilla Soft Serve" class="img-fluid" style="height:20%; width: 20%;">
+                    <h4>Vanilla Soft Serve</h4>
+                    <p>Soft and creamy serving of vanilla ice cream.</p>
+                    <input type="number" id="item2Qty" value="1" min="1" onchange="calculateBill()">
+                    <span>Price: Rs.500</span>
+                </div>
+            </div>
+
+            <!-- Delivery Details Section -->
+            <div class="delivery-section">
+                <h5>Delivery Details</h5>
+                <div class="form-group">
+                    <label for="deliveryTo">Delivering to:</label>
+                    <select id="deliveryTo" class="form-control" onchange="calculateBill()">
+                        <option value="home">Home</option>
+                        <option value="office">Office</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryType">Delivery Type:</label>
+                    <select id="deliveryType" class="form-control" onchange="calculateBill()">
+                        <option value="standard">Standard</option>
+                        <option value="express">Express</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section (Bill and Payment) -->
+        <div class="right-section">
+            <div class="bill-section">
+                <h5>Bill and Payment</h5>
+                <div class="form-group">
+                    <label>Subtotal:</label>
+                    <span id="subtotal">1300</span>
+                </div>
+                <div class="form-group">
+                    <label>Tax Applied:</label>
+                    <span id="tax">170</span>
+                </div>
+                <div class="form-group">
+                    <label>Delivery Fee:</label>
+                    <span id="deliveryFee">100</span>
+                </div>
+                <div class="form-group">
+                    <label>Tip Your Rider:</label>
+                    <input type="number" id="tipAmount" class="form-control" value="0" onchange="calculateBill()">
+                </div>
+                <div class="form-group">
+                    <label>Total:</label>
+                    <span id="finalTotal">1570</span>
+                </div>
+                <button onclick="confirmOrder()" class="btn btn-primary">Confirm Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="custom-footer">
+        <div class="container">
+            <p>Follow us on:</p>
+            <a href="https://www.instagram.com" class="btn btn-outline-primary btn-sm" style="color: #fff;">Instagram</a>
+            <a href="https://www.facebook.com" class="btn btn-outline-primary btn-sm" style="color: #fff;">Facebook</a>
+        </div>
+    </footer>
+
+    <script>
+        function calculateBill() {
+            let item1Qty = document.getElementById('item1Qty').value;
+            let item2Qty = document.getElementById('item2Qty').value;
+            let tipAmount = document.getElementById('tipAmount').value;
+
+            let item1Price = 800;  // Price for Super Chocolate Bliss Shake
+            let item2Price = 500;  // Price for Vanilla Soft Serve
+            let deliveryFee = 100; // Fixed delivery fee
+            let taxRate = 0.13;    // Tax rate (13%)
+
+            // Calculate the subtotal
+            let subtotal = (item1Qty * item1Price) + (item2Qty * item2Price);
+            // Calculate tax
+            let tax = subtotal * taxRate;
+            // Calculate the final total
+            let finalTotal = subtotal + tax + deliveryFee + parseInt(tipAmount);
+
+            // Update the bill section
+            document.getElementById('subtotal').innerText = "Rs." + subtotal;
+            document.getElementById('tax').innerText = "Rs." + tax.toFixed(2);
+            document.getElementById('deliveryFee').innerText = "Rs." + deliveryFee;
+            document.getElementById('finalTotal').innerText = "Rs." + finalTotal;
+        }
+
+        function confirmOrder() {
+            alert("Your order has been confirmed!");
+        }
+    </script>
+
+</body>
+</html>
