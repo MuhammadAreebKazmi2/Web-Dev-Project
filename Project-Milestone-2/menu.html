@@ -74,11 +74,6 @@
                 <h3>Strawberry Shake</h3>
                 <p class="price">Rs 600</p>
             </div>
-            <div class="item">
-                <img src="shake-pic.jpg" alt="Chocolate Bliss Shake">
-                <h3>Chocolate Bliss Shake</h3>
-                <p class="price">Rs 400</p>
-            </div>
         </div>
     </section>
 
@@ -120,13 +115,13 @@
 });
 
      //it is for linking with the item description screen when an itemis clicked
-        // document.querySelectorAll(".item").forEach(item => {
-        //     item.addEventListener("click", function() {
-        //         let itemName = this.querySelector("h3").textContent;
-        //         let itemPrice = this.querySelector(".price").textContent;
-        //         window.location.href = `item.html?name=${encodeURIComponent(itemName)}&price=${encodeURIComponent(itemPrice)}`;
-        //     });
-        // });
+        document.querySelectorAll(".item").forEach(item => {
+            item.addEventListener("click", function() {
+                let itemName = this.querySelector("h3").textContent;
+                let itemPrice = this.querySelector(".price").textContent;
+                window.location.href = `item.html?name=${encodeURIComponent(itemName)}&price=${encodeURIComponent(itemPrice)}`;
+            });
+        });
 
         //it is to actually integrate the substantial fifth screen 
         //like if cart is empty cart_2.html will appear
@@ -138,18 +133,6 @@
             } else {
                 window.location.href = "cart.html";
             }
-        });
-        
-        // Update the click event to send item data to item.html
-        document.querySelectorAll(".item").forEach(item => {
-            item.addEventListener("click", function() {
-                let itemName = this.querySelector("h3").textContent;
-                let itemPrice = this.querySelector(".price").textContent;
-                let itemImage = this.querySelector("img").src;
-
-                // Pass the item details as URL parameters to item.html
-                window.location.href = `item.html?name=${encodeURIComponent(itemName)}&price=${encodeURIComponent(itemPrice)}&image=${encodeURIComponent(itemImage)}`;
-            });
         });
 
 </script>

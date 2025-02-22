@@ -10,104 +10,129 @@
 <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
-        <div class="container">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light custom-navbar">  -->
+        <!-- Added custom class -->
+        <!-- <div class="container">
             <a class="navbar-brand" href="#">Sweet Treats</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto custom-navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <ul class="navbar-nav ms-auto custom-navbar-nav">  -->
+                    <!-- Added custom class -->
+                    <!-- <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
-    <!-- Menu Items (Directly in the Body) -->
-    <div class="container mt-5">
-        <!-- Item Details and Form (Moved from Modal to Body) -->
-        <div class="row mt-4">
-            <div class="col-md-6 left-col">
-                <img src="shake-pic.jpg" alt="Chocolate Shake" class="modal-img" />
+    <!-- Menu Items -->
+    <!-- <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="menu-item" data-bs-toggle="modal" data-bs-target="#itemModal">
+                    <img src="shake-pic.jpg" alt="Super Chocolate Bliss Shake">
+                    <h5>Super Chocolate Bliss Shake</h5>
+                </div>
             </div>
-            <div class="col-md-6 right-col">
-                <h5>Super Chocolate Bliss Shake</h5>
-                <p class="item-description">Indulge in the ultimate chocolate fantasy! Velvety chocolate ice cream blended with milk and chocolate chips to create a rich, creamy treat, topped with fluffy whipped cream and a drizzle of decadent chocolate sauce. Every sip is a perfect mix of silky, crunchy, and chocolaty delight.</p>
+        </div>
+    </div> -->
 
-                <form id="orderForm" onsubmit="handleAddToCart(event)">
-                    <div class="mb-3">
-                        <label for="base" class="form-label">Select Base <span class="required">*</span></label>
-                        <select id="base" class="form-select" onchange="updatePrice()">
-                            <option value="30">Chocolate Base</option>
-                            <option value="30">Vanilla Base</option>
-                        </select>
-                    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header sticky-header">
+                    <h5 class="modal-title" id="itemModalLabel">Super Chocolate Bliss Shake</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- Left Column (Image) -->
+                        <div class="col-md-6 left-col">
+                            <img src="shake-pic.jpg" alt="Chocolate Shake" class="modal-img" />
+                        </div>
+                        <!-- Right Column (Description, Dropdowns, Quantity) -->
+                        <div class="col-md-6 right-col">
+                            <p class="item-description">Indulge in the ultimate chocolate fantasy! Velvety chocolate ice cream blended with milk and chocolate chips to create a rich, creamy treat, topped with fluffy whipped cream and a drizzle of decadent chocolate sauce. Every sip is a perfect mix of silky, crunchy, and chocolaty delight.</p>
 
-                    <!-- Toppings Dropdown with Expand Option -->
-                    <div class="mb-3">
-                        <label for="toppings" class="form-label">Toppings (max 8)</label>
-                        <button type="button" class="btn btn-outline-secondary w-100" data-bs-toggle="collapse" data-bs-target="#toppingCollapse" aria-expanded="false" aria-controls="toppingCollapse">
-                            Select Toppings
-                        </button>
-                        <div class="collapse" id="toppingCollapse">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="oreo" value="10" onchange="updatePrice()">
-                                <label class="form-check-label" for="oreo">Oreo Crumbs - Rs. 10</label><br>
+                            <form id="orderForm">
+                                <div class="mb-3">
+                                    <label for="base" class="form-label">Select Base <span class="required">*</span></label>
+                                    <select id="base" class="form-select" onchange="updatePrice()">
+                                        <option value="30">Chocolate Base</option>
+                                        <option value="30">Vanilla Base</option>
+                                    </select>
+                                </div>
 
-                                <input type="checkbox" class="form-check-input" id="whipped" value="15" onchange="updatePrice()">
-                                <label class="form-check-label" for="whipped">Whipped Cream - Rs. 15</label><br>
+                                <!-- Toppings Dropdown with Expand Option -->
+                                <div class="mb-3">
+                                    <label for="toppings" class="form-label">Toppings (max 8)</label>
+                                    <button type="button" class="btn btn-outline-secondary w-100" data-bs-toggle="collapse" data-bs-target="#toppingCollapse" aria-expanded="false" aria-controls="toppingCollapse">
+                                        Select Toppings
+                                    </button>
+                                    <div class="collapse" id="toppingCollapse">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="oreo" value="10" onchange="updatePrice()">
+                                            <label class="form-check-label" for="oreo">Oreo Crumbs - Rs. 10</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="choco" value="20" onchange="updatePrice()">
-                                <label class="form-check-label" for="choco">Chocolate Drizzle - Rs. 20</label><br>
+                                            <input type="checkbox" class="form-check-input" id="whipped" value="15" onchange="updatePrice()">
+                                            <label class="form-check-label" for="whipped">Whipped Cream - Rs. 15</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="cherry" value="10" onchange="updatePrice()">
-                                <label class="form-check-label" for="cherry">Cherries - Rs. 10</label><br>
+                                            <input type="checkbox" class="form-check-input" id="choco" value="20" onchange="updatePrice()">
+                                            <label class="form-check-label" for="choco">Chocolate Drizzle - Rs. 20</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="nuts" value="12" onchange="updatePrice()">
-                                <label class="form-check-label" for="nuts">Crushed Nuts - Rs. 12</label><br>
+                                            <input type="checkbox" class="form-check-input" id="cherry" value="10" onchange="updatePrice()">
+                                            <label class="form-check-label" for="cherry">Cherries - Rs. 10</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="marshmallows" value="15" onchange="updatePrice()">
-                                <label class="form-check-label" for="marshmallows">Marshmallows - Rs. 15</label><br>
+                                            <input type="checkbox" class="form-check-input" id="nuts" value="12" onchange="updatePrice()">
+                                            <label class="form-check-label" for="nuts">Crushed Nuts - Rs. 12</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="caramel" value="18" onchange="updatePrice()">
-                                <label class="form-check-label" for="caramel">Caramel Drizzle - Rs. 18</label><br>
+                                            <input type="checkbox" class="form-check-input" id="marshmallows" value="15" onchange="updatePrice()">
+                                            <label class="form-check-label" for="marshmallows">Marshmallows - Rs. 15</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="biscuits" value="8" onchange="updatePrice()">
-                                <label class="form-check-label" for="biscuits">Biscuit Crumbs - Rs. 8</label><br>
+                                            <input type="checkbox" class="form-check-input" id="caramel" value="18" onchange="updatePrice()">
+                                            <label class="form-check-label" for="caramel">Caramel Drizzle - Rs. 18</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="chocolateChips" value="12" onchange="updatePrice()">
-                                <label class="form-check-label" for="chocolateChips">Chocolate Chips - Rs. 12</label><br>
+                                            <input type="checkbox" class="form-check-input" id="biscuits" value="8" onchange="updatePrice()">
+                                            <label class="form-check-label" for="biscuits">Biscuit Crumbs - Rs. 8</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="mango" value="20" onchange="updatePrice()">
-                                <label class="form-check-label" for="mango">Mango Slices - Rs. 20</label><br>
+                                            <input type="checkbox" class="form-check-input" id="chocolateChips" value="12" onchange="updatePrice()">
+                                            <label class="form-check-label" for="chocolateChips">Chocolate Chips - Rs. 12</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="peanutButter" value="17" onchange="updatePrice()">
-                                <label class="form-check-label" for="peanutButter">Peanut Butter - Rs. 17</label><br>
+                                            <input type="checkbox" class="form-check-input" id="mango" value="20" onchange="updatePrice()">
+                                            <label class="form-check-label" for="mango">Mango Slices - Rs. 20</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="strawberries" value="18" onchange="updatePrice()">
-                                <label class="form-check-label" for="strawberries">Strawberries - Rs. 18</label><br>
+                                            <input type="checkbox" class="form-check-input" id="peanutButter" value="17" onchange="updatePrice()">
+                                            <label class="form-check-label" for="peanutButter">Peanut Butter - Rs. 17</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="honey" value="15" onchange="updatePrice()">
-                                <label class="form-check-label" for="honey">Honey Drizzle - Rs. 15</label><br>
+                                            <input type="checkbox" class="form-check-input" id="strawberries" value="18" onchange="updatePrice()">
+                                            <label class="form-check-label" for="strawberries">Strawberries - Rs. 18</label><br>
 
-                                <input type="checkbox" class="form-check-input" id="banana" value="10" onchange="updatePrice()">
-                                <label class="form-check-label" for="banana">Banana Slices - Rs. 10</label><br>
-                            </div>
+                                            <input type="checkbox" class="form-check-input" id="honey" value="15" onchange="updatePrice()">
+                                            <label class="form-check-label" for="honey">Honey Drizzle - Rs. 15</label><br>
+
+                                            <input type="checkbox" class="form-check-input" id="banana" value="10" onchange="updatePrice()">
+                                            <label class="form-check-label" for="banana">Banana Slices - Rs. 10</label><br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="quantity" class="form-label">Quantity</label>
+                                    <input type="number" id="quantity" class="form-control" value="1" min="1" onchange="updatePrice()">
+                                </div>
+
+                                <p>Total Price: Rs. <span id="totalPrice">400</span></p>
+                  
+                                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="quantity" class="form-label">Quantity</label>
-                        <input type="number" id="quantity" class="form-control" value="1" min="1" onchange="updatePrice()">
-                    </div>
-
-                    <p>Total Price: Rs. <span id="totalPrice">400</span></p>
-                    <button type="submit" class="btn btn-primary">Add to Cart</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -116,8 +141,8 @@
     <footer class="custom-footer">
         <div class="container">
             <p>Follow us on:</p>
-            <a href="https://www.instagram.com" class="instagram">Instagram</a>
-            <a href="https://www.facebook.com" class="facebook">Facebook</a>
+            <a href="https://www.instagram.com" class="instagram" >Instagram</a>
+            <a href="https://www.facebook.com" class="facebook" >Facebook</a>
         </div>
     </footer>
 
@@ -150,27 +175,6 @@
             // Calculate total price
             const totalPrice = (basePrice + totalToppingPrice) * quantity;
             document.getElementById("totalPrice").innerText = totalPrice;
-        }
-
-        // Handle "Add to Cart" button click
-        function handleAddToCart(event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Get form values
-            const base = document.getElementById("base").value;
-            const toppings = Array.from(document.querySelectorAll('.form-check-input:checked'))
-                .map(topping => topping.id).join(", ");
-            const quantity = document.getElementById("quantity").value;
-            const totalPrice = document.getElementById("totalPrice").innerText;
-
-            // Redirect to cart.html with query parameters
-            const url = new URL('cart.html', window.location.href);
-            url.searchParams.set('base', base);
-            url.searchParams.set('toppings', toppings);
-            url.searchParams.set('quantity', quantity);
-            url.searchParams.set('totalPrice', totalPrice);
-
-            window.location.href = url; // Redirect to cart
         }
     </script>
 
