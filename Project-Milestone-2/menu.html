@@ -19,7 +19,7 @@
                 <li><a href="#brownies">Brownie</a></li>
             </ul>
             <input type="text" id="searchInput" placeholder="Search...">
-            <a href="#cart.html" class="cart">🛒</a>
+            <a href="#cart.html" class="cart" id="cartLink">🛒</a>
 
         </nav>
     </header>
@@ -69,17 +69,12 @@
                 <h3>Strawberry Shake</h3>
                 <p class="price">Rs 600</p>
             </div>
-            <div class="item">
-                <img src="shake-pic.jpg" alt="Super Chocolate Bliss Shake">
-                <h3>Super Chocolate Bliss Shake</h3>
-                <p class="price">Rs 400</p>
-            </div>
         </div>
     </section>
 
 
     <section id="brownies">
-        <h2 class="section-title green">Brownies</h2>
+        <h2 class="section-title green">Shakes</h2>
         <div class="menu-items">
             <div class="item">
                 <img src="fudge_brownie.png" alt="Fudge Brownie">
@@ -96,6 +91,8 @@
 
     <!--its basically for finding items, through item name, written in the search input field-->
 <script>
+
+  let cartItems = 2; // Default cart items set to 2
   document.getElementById("searchInput").addEventListener("keyup", function(event) {
     if (event.key !== "Enter") return; // Only proceed if Enter is pressed
 
@@ -112,10 +109,34 @@
     alert("Item not found in the menu.");
 });
 
+     //it is for linking with the item description screen when an itemis clicked
+        document.querySelectorAll(".item").forEach(item => {
+            item.addEventListener("click", function() {
+                let itemName = this.querySelector("h3").textContent;
+                let itemPrice = this.querySelector(".price").textContent;
+                window.location.href = `item.html?name=${encodeURIComponent(itemName)}&price=${encodeURIComponent(itemPrice)}`;
+            });
+        });
 
+        //it is to actually integrate the substantial fifth screen 
+        //like if cart is empty cart_2.html will appear
+        //if cart has some items then cart description screen wil appear
+        document.getElementById("cartLink").addEventListener("click", function(event) {
+            event.preventDefault();
+            if (cartItems < 2) {
+                window.location.href = "cart_2.html";
+            } else {
+                window.location.href = "cart.html";
+            }
+        });
 
 </script>
 
+    
+
+
+
+<!--footer -->
 <footer class="custom-footer">
     <div class="container">
         <p class="foot">Follow us on:</p>
@@ -127,77 +148,3 @@
     
 </body>
 </html>
-    
-<!--for dynamically adding items to the menu instead of copying the HTML tags--> 
-
-    <!-- <script>
-        const menuData = [
-            {
-                id: "ice-cream",
-                title: "Ice Cream",
-                color: "pink",
-                items: [
-                    { name: "Chocolate Chip", price: 300, image: "chocolate_chip.png" },
-                    { name: "Blackberry", price: 200, image: "blackberry.png" }
-                ]
-            },
-            {
-                id: "waffles",
-                title: "Waffles",
-                color: "brown",
-                items: [
-                    { name: "Ice-o-waffle", price: 650, image: "ice-o-waffle.jpg" },
-                    { name: "Cream-o-waffle", price: 500, image: "cream-o-waffle.jpg" }
-                ]
-            },
-            {
-                id: "shakes",
-                title: "Shakes",
-                color: "purple",
-                items: [
-                    { name: "Chocolate Shake", price: 400, image: "chocolate-shake.jpg" },
-                    { name: "Strawberry Shake", price: 350, image: "strawberry-shake.jpg" }
-                ]
-            },
-            {
-                id: "brownie",
-                title: "Brownies",
-                color: "green",
-                items: [
-                    { name: "Chocolate Brownie", price: 450, image: "choco-brownie.jpg" },
-                    { name: "Walnut Brownie", price: 500, image: "walnut-brownie.jpg" }
-                ]
-            }
-        ];
-    
-        function generateMenu() {
-            const menuContainer = document.body; //select the body to insert sections
-    
-            menuData.forEach(category => {
-                let sectionHTML = `
-                    <section id="${category.id}">
-                        <h2 class="section-title ${category.color}">${category.title}</h2>
-                        <div class="menu-items">
-                `;
-    
-                category.items.forEach(item => {
-                    sectionHTML += `
-                        <div class="item">
-                            <img src="${item.image}" alt="${item.name}">
-                            <h3>${item.name}</h3>
-                            <p class="price">Rs ${item.price}</p>
-                        </div>
-                    `;
-                });
-    
-                sectionHTML += `</div></section>`;
-    
-                menuContainer.innerHTML += sectionHTML; // Append to the page
-            });
-        }
-    
-        generateMenu();
-    </script> -->
-
-
-<!--footer -->
