@@ -4,13 +4,14 @@ html {/*for smooth transition to the categories*/
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: lightblue;
+    background-color: rgb(255, 255, 255);
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
 /*nav bar*/
+
 
 .logo {
     font-size: 24px;
@@ -28,7 +29,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: gold;/*bg color of nav bar*/
+    background-color:  #80DEEA;/*bg color of nav bar*/
     padding: 10px 50px;
     /*border-bottom: 2px solid black; adds a black border only at the bottom of the nav bar */
 }
@@ -94,19 +95,19 @@ input[type="text"] {
 }
 
 .pink {
-    background: palevioletred;
+    background: #f3cc7d;
 }
 
 .brown {
-    background: #C19A6B;
+    background: #f3cc7d;
 }
 
 .purple {
-    background: mediumorchid;
+    background: #f3cc7d;
 }
 
 .green {
-    background: mediumseagreen;
+    background: #f3cc7d;
 }
 
 .menu-items {/*boxes having items*/
@@ -149,53 +150,19 @@ input[type="text"] {
     font-weight: bold;
 }
 
-/*all footer*/
-
-/*separation from body*/
-footer {
-    background: white;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-/*footer styles*/
+/* Custom footer styles */
 .custom-footer {
-    background-color: lightgray !important; /*footer color*/
+    background-color: #FF80AB !important; /* Pink Footer */
+    color: #fff !important; /* White text in footer */
     padding: 20px 0;
     text-align: center;
 }
 
-.foot{
-    color: black; /*for follow us text*/
-}
-
 .custom-footer a {
-    display: inline-block;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 10px;
+    color: #fff !important; /* White links */
 }
 
-/*Instagram button*/
-.custom-footer .instagram {
-    background-color: orange;
-    color: white;/*text color for instagram text*/
-}
-
-.custom-footer .instagram:hover {
-    background-color: lightpink;
-    color: white;
-}
-
-/*Facebook button*/
-.custom-footer .facebook {
-    background-color: blue;/*text color for facebook text*/
-    color: white;
-}
-
-.custom-footer .facebook:hover {
-    background-color: darkblue;
-    color: white;
+.custom-footer a:hover {
+    color: #FFCC80 !important; /* Light orange hover effect on footer links */
 }
