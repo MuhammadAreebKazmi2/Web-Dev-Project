@@ -2,24 +2,64 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-/* Custom navbar styles */
-.custom-navbar {
-    background-color: #80DEEA !important; /* Sky blue */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:  #80DEEA;/*bg color of nav bar*/
+    padding: 10px 50px;
+    /*border-bottom: 2px solid black; adds a black border only at the bottom of the nav bar */
 }
 
-.custom-navbar .navbar-brand,
-.custom-navbar .nav-link {
-    color: #fff !important; /* White text for navbar items */
+/*items of nav bar*/
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px; /*adds spacing between items */
+    padding: 0;
+    margin: 0;
 }
 
-.custom-navbar .navbar-brand:hover, 
-.custom-navbar .nav-link:hover {
-    color: #FF80AB !important; /* Pink on hover for contrast */
+nav ul li {
+    display: inline; /*nav bar items, li, appears in row  */
 }
 
-/* Ensure navbar links are white */
-.custom-navbar-nav .nav-link {
-    color: #fff !important; /* Ensuring the links are white */
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: all 0.3s ease-in-out; /*for smooth transition */
+    border-radius: 5px; /*adds rounded corners */
+}
+
+nav ul li a:hover {
+    color: white; /*changes text color on hover*/
+    background-color: black; /*background changes to orange when hover*/
+    padding: 10px 15px; /*padding to look like a button */
+    border-radius: 8px; /*rounded effect with turned corners*/
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /*adds a slight shadow */
+}
+
+
+.cart {
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.cart:hover {
+    color: #ff6600;
+}
+
+
+input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 
 .menu-item {
