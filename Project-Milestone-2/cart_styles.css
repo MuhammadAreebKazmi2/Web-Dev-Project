@@ -1,0 +1,160 @@
+ /* Custom styles for the layout */
+
+/* Custom navbar styles */
+.custom-navbar {
+    background-color: #80DEEA !important; /* Sky blue */
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+    color: #fff !important; /* White text for navbar items */
+}
+
+.custom-navbar .navbar-brand:hover, 
+.custom-navbar .nav-link:hover {
+    color: #FF80AB !important; /* Pink on hover for contrast */
+}
+
+/* Ensure navbar links are white */
+.custom-navbar-nav .nav-link {
+    color: #fff !important; /* Ensuring the links are white */
+}
+
+.menu-item {
+    cursor: pointer;
+    text-align: center;
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+ body {
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    background-color: #f8f9fa;
+}
+.custom-navbar {
+    padding: 10px;
+}
+.custom-footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.left-section {
+    width: 50%;
+    padding-right: 10px;
+}
+.right-section {
+    width: 40%;
+    padding-left: 10px;
+}
+
+/* Flexbox layout for the item container */
+.item-section {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Reduce space between items */
+    padding: 10px;
+    background-color: #f8d7da; /* Light red */
+    border-radius: 10px;
+}
+
+/* Layout for each individual item */
+.item {
+    display: flex; /* Align items in a row */
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Vertically center the items */
+    gap: 15px; /* Reduce space between the image and text */
+    padding: 10px; /* Smaller padding */
+    background-color: #fff; /* White background for each item */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for each item */
+}
+
+/* Image styles */
+.item-img {
+    width: 50px; /* Smaller image size */
+    height: 50px; /* Fixed height */
+    border-radius: 8px;
+}
+
+/* Container for the item details */
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Item name */
+.item-details h4 {
+    margin: 0;
+    font-size: 16px; /* Slightly smaller font size */
+    font-weight: bold;
+}
+
+/* Item price */
+.item-details p {
+    margin: 5px 0;
+    font-size: 14px; /* Smaller font size for price */
+}
+
+/* Quantity input field */
+.quantity {
+    width: 40px; /* Smaller width */
+    padding: 3px;
+    font-size: 14px;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+.bill-section {
+    background-color: #ffeeba;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.footer-buttons a {
+    margin: 5px;
+}
+
+/* Custom footer styles */
+.custom-footer {
+    background-color: #FF80AB !important; /* Pink Footer */
+    color: #fff !important; /* White text in footer */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.custom-footer a {
+    margin: 0 10px;
+    color: #fff !important; /* White links */
+}
+
+.custom-footer a:hover {
+    color: #FFCC80 !important; /* Light orange hover effect on footer links */
+}
+
+.form-check-label {
+    font-size: 16px; /* Increased font size for checkboxes */
+    font-weight: normal;
+    color: #555;
+    padding-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 100%;
+    }
+}
