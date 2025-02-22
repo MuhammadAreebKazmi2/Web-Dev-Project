@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Treats</title>
+    <link rel="stylesheet" href="homestyle.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo">Sweet Treats</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="background-section"></section>
+    <!--the log in box having input fields-->
+    <div class="login-container">
+        <h2>Already have an account?</h2>
+        <form action="menu.html" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <span class="toggle-password">👁️</span>
+            </div>
+            
+            <button type="submit">Log in</button>
+        </form>
+    </div>
+    </section>
+    
+<!--footer-->
+    <footer class="custom-footer">
+        <div class="container">
+            <!-- <p class="foot">Follow us on:</p> -->
+            <a href="https://www.instagram.com" class="instagram">Instagram</a>
+            <a href="https://www.facebook.com" class="facebook">Facebook</a>
+        </div>
+    </footer>
+
+    <script>
+        //if person clicks the eye icon then show password else hide 
+        document.querySelector(".toggle-password").addEventListener("click", function() {
+            let passwordInput = document.getElementById("password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    </script>
+</body>
+</html>
