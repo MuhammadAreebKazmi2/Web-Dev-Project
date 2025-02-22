@@ -1,191 +1,213 @@
-html {/*for smooth transition to the categories*/
-    scroll-behavior: smooth;
+body {
+    font-family: 'Arial', sans-serif;
 }
 
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: lightblue;
-    margin: 0;
-    padding: 0;
+/* Custom navbar styles */
+.custom-navbar {
+    background-color: #80DEEA !important; /* Sky blue */
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+    color: #fff !important; /* White text for navbar items */
+}
+
+.custom-navbar .navbar-brand:hover, 
+.custom-navbar .nav-link:hover {
+    color: #FF80AB !important; /* Pink on hover for contrast */
+}
+
+/* Ensure navbar links are white */
+.custom-navbar-nav .nav-link {
+    color: #fff !important; /* Ensuring the links are white */
+}
+
+.menu-item {
+    cursor: pointer;
     text-align: center;
 }
 
-/*nav bar*/
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    margin-right: 40px; /*adding gap between "Sweet Treat" and "Menu"*/
+.menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
-.menu-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-right: 50px; /*adds gap between "Menu" and the nav links */
+.modal-content {
+    max-height: 90vh; /* Increased modal height */
+    overflow-y: auto; /* Enable vertical scroll if content exceeds the height */
+    width: 90%; /* Increased the modal width for better appearance */
 }
 
-nav {
+.modal-img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10; /* Ensure header stays on top */
+}
+
+.left-col {
+    position: sticky;
+    top: 0;
+    z-index: 9; /* Ensures the image stays in view when scrolling */
+}
+
+.right-col {
+    max-height: 60vh;
+    overflow-y: auto; /* Allows scrolling for the right column */
+}
+
+.item-description {
+    font-size: 16px;
+    font-style: italic; /* Added stylish italics */
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+
+.menu-item {
+    cursor: pointer;
+    text-align: center;
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+ body {
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    background-color: #f8f9fa;
+}
+.custom-navbar {
+    padding: 10px;
+}
+.custom-footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+.Main {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background-color: gold;/*bg color of nav bar*/
-    padding: 10px 50px;
-    /*border-bottom: 2px solid black; adds a black border only at the bottom of the nav bar */
-}
-
-/*items of nav bar*/
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px; /*adds spacing between items */
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline; /*nav bar items, li, appears in row  */
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 8px 12px;
-    transition: all 0.3s ease-in-out; /*for smooth transition */
-    border-radius: 5px; /*adds rounded corners */
-}
-
-nav ul li a:hover {
-    color: white; /*changes text color on hover*/
-    background-color: black; /*background changes to orange when hover*/
-    padding: 10px 15px; /*padding to look like a button */
-    border-radius: 8px; /*rounded effect with turned corners*/
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /*adds a slight shadow */
-}
-
-
-.cart {
-    text-decoration: none;
-    font-size: 20px;
-    color: #333;
-    padding: 5px 10px;
-    transition: color 0.3s;
-}
-
-.cart:hover {
-    color: #ff6600;
-}
-
-
-input[type="text"] {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid gray;
-}
-
-/*menu items*/
-
-.section-title {
-    padding: 30px;
-    margin: 50px;
-    font-size: 30px;
-    text-align: center;
-    color: white;
-}
-
-.pink {
-    background: palevioletred;
-}
-
-.brown {
-    background: #C19A6B;
-}
-
-.purple {
-    background: mediumorchid;
-}
-
-.green {
-    background: mediumseagreen;
-}
-
-.menu-items {/*boxes having items*/
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
-}
-
-.item {/*each item inside box*/
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    text-align: center;
-}
-
-.item img {
-    width: 100%;
-    border-radius: 30px;
-    height: 200px;  /* Set a fixed height */
-    object-fit: cover;
-}
-
-.price {
-    background: yellow;
-    padding: 5px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/*all footer*/
-
-/*separation from body*/
-footer {
-    background: white;
     padding: 20px;
-    margin-top: 20px;
+}
+.left-section {
+    width: 50%;
+    padding-right: 10px;
+}
+.right-section {
+    width: 40%;
+    padding-left: 10px;
 }
 
-/*footer styles*/
+/* Flexbox layout for the item container */
+.item-section {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Reduce space between items */
+    padding: 10px;
+    background-color: #f8d7da; /* Light red */
+    border-radius: 10px;
+}
+
+/* Layout for each individual item */
+.item {
+    display: flex; /* Align items in a row */
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Vertically center the items */
+    gap: 15px; /* Reduce space between the image and text */
+    padding: 10px; /* Smaller padding */
+    background-color: #fff; /* White background for each item */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for each item */
+}
+
+/* Image styles */
+.item-img {
+    width: 50px; /* Smaller image size */
+    height: 50px; /* Fixed height */
+    border-radius: 8px;
+}
+
+/* Container for the item details */
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Item name */
+.item-details h4 {
+    margin: 0;
+    font-size: 16px; /* Slightly smaller font size */
+    font-weight: bold;
+}
+
+/* Item price */
+.item-details p {
+    margin: 5px 0;
+    font-size: 14px; /* Smaller font size for price */
+}
+
+/* Quantity input field */
+.quantity {
+    width: 40px; /* Smaller width */
+    padding: 3px;
+    font-size: 14px;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+.bill-section {
+    background-color: #ffeeba;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.footer-buttons a {
+    margin: 5px;
+}
+
+
+/* Custom footer styles */
 .custom-footer {
-    background-color: lightgray !important; /*footer color*/
+    background-color: #FF80AB !important; /* Pink Footer */
+    color: #fff !important; /* White text in footer */
     padding: 20px 0;
     text-align: center;
 }
 
-.foot{
-    color: black; /*for follow us text*/
-}
-
 .custom-footer a {
-    display: inline-block;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 10px;
+    color: #fff !important; /* White links */
 }
 
-/*Instagram button*/
-.custom-footer .instagram {
-    background-color: orange;
-    color: white;/*text color for instagram text*/
+.custom-footer a:hover {
+    color: #FFCC80 !important; /* Light orange hover effect on footer links */
 }
 
-.custom-footer .instagram:hover {
-    background-color: lightpink;
-    color: white;
+.form-check-label {
+    font-size: 16px; /* Increased font size for checkboxes */
+    font-weight: normal;
+    color: #555;
+    padding-left: 10px;
 }
 
-/*Facebook button*/
-.custom-footer .facebook {
-    background-color: blue;/*text color for facebook text*/
-    color: white;
-}
-
-.custom-footer .facebook:hover {
-    background-color: darkblue;
-    color: white;
+@media (max-width: 768px) {
+    .modal-content {
+        width: 100%;
+    }
 }
