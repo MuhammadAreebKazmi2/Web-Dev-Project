@@ -95,19 +95,19 @@ input[type="text"] {
 }
 
 .pink {
-    background: #f3cc7d;
+    background: palevioletred;
 }
 
 .brown {
-    background: #f3cc7d;
+    background: #C19A6B;
 }
 
 .purple {
-    background: #f3cc7d;
+    background: mediumorchid;
 }
 
 .green {
-    background: #f3cc7d;
+    background: mediumseagreen;
 }
 
 .menu-items {/*boxes having items*/
