@@ -15,6 +15,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/Home" element={<SweetTreats />} />  
+        <Route path="/" element={<SweetTreats />} />  
         <Route path="/Menu" element={<MenuComponent />} />
         <Route path="/cartPage" element={<CartPage />} />
         <Route path="/emptycart" element={<EmptyCart />} />
