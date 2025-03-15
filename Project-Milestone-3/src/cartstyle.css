@@ -1,0 +1,140 @@
+/* Main container that holds the content for the cart page */
+.cart-page {
+  display: flex;
+  justify-content: center;
+  padding: 40px;  /* Increased padding */
+  max-width: 1400px;  /* Increased max width */
+  margin: 0 auto;
+}
+
+/* Main content area with left and right sections */
+.cart-page .main-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;  /* Ensures the content takes the full width */
+  flex-wrap: wrap;
+}
+
+/* Left section (Sweet Treats + Delivery Details) */
+.cart-page .left-section {
+  width: 65%;  /* Increased width to 65% */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sweet Treats Section */
+.cart-page .cart {
+  width: 100%;
+  background-color: #f9e0e0;
+  padding: 30px;  /* Increased padding */
+  border-radius: 10px;  /* Slightly larger border radius */
+}
+
+.cart-page .cart-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 25px;  /* Increased padding */
+  margin-bottom: 20px;  /* Increased margin */
+  border-radius: 10px;
+}
+
+.cart-page .cart-item-img {
+  width: 100px;  /* Increased image size */
+  height: 100px;  /* Increased image size */
+  object-fit: cover;
+  margin-right: 20px;  /* Increased space between image and text */
+}
+
+.cart-page .cart-item-info {
+  flex-grow: 1;
+}
+
+.cart-page .cart-item-info .product-name {
+  font-weight: bold;
+  font-size: 18px;  /* Increased font size */
+}
+
+.cart-page .cart-item-info .product-price {
+  font-size: 16px;  /* Increased font size */
+  color: #555;
+}
+
+.cart-page .cart-item-info input {
+  margin-top: 15px;  /* Increased margin */
+  width: 80px;  /* Increased input field size */
+  padding: 8px;  /* Increased padding */
+  font-size: 16px;  /* Increased font size */
+}
+
+.cart-page .remove-item {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;  /* Dustbin icon size */
+  cursor: pointer;
+  margin-left: 15px;
+  color: red;
+}
+
+/* Right Section (Bill and Payment) */
+.cart-page .right-section {
+  width: 30%;  /* Increased the width to 30% */
+  height: auto;  /* Adjusted height to auto to fit content */
+  background-color: #fff4d9;
+  padding: 30px;  /* Increased padding */
+  margin-left: 30px;  /* Increased left margin */
+  border-radius: 10px;
+  box-sizing: border-box;  /* Ensures padding doesn't affect the width */
+  overflow: hidden; /* Prevents overflow */
+}
+
+/* Bill Section */
+.cart-page .bill-payment {
+  width: 100%;  /* Ensures the bill payment section takes full width */
+}
+
+.cart-page .bill-payment h3 {
+  font-size: 24px;  /* Increased font size */
+  margin-bottom: 20px;  /* Increased margin */
+}
+
+.cart-page .bill-payment div {
+  margin-bottom: 15px;  /* Increased margin */
+}
+
+.cart-page .bill-payment button {
+  background-color: #28a745;
+  color: white;
+  padding: 15px 25px;  /* Increased padding */
+  border-radius: 8px;  /* Larger border radius */
+  border: none;
+  cursor: pointer;
+  width: 100%;  /* Ensures button takes the full width */
+  font-size: 18px;  /* Increased font size */
+}
+
+.cart-page .clear {
+  background-color: #ea6b0a;
+  width: 30%;  /* Increased width */
+  justify-self: center;
+  color: white;
+  padding: 15px 25px;  /* Increased padding */
+  border-radius: 8px;  /* Larger border radius */
+  border: none;
+  cursor: pointer;
+  font-size: 18px;  /* Increased font size */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-page .main-content {
+    flex-direction: column;  /* Stack the sections vertically on small screens */
+  }
+
+  .cart-page .left-section,
+  .cart-page .right-section {
+    width: 100%;  /* Full width for both sections on small screens */
+    margin-left: 0;
+    margin-bottom: 30px;  /* Increased margin */
+  }
+}
