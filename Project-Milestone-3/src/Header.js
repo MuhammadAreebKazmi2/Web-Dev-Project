@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ cartItemCount, setCartItemCount }) => {
-    const [searchQuery, setSearchQuery] = useState('');
-    const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sidebarOpen, setSidebarOpen] = useState(false); // Track if the sidebar is open
+  const navigate = useNavigate();
 
   // Handle search functionality
   const handleSearch = (event) => {
@@ -26,42 +27,64 @@ const Header = ({ cartItemCount, setCartItemCount }) => {
     }
   };
 
-  //navigate based on cartItemCount
-  //this i sfor substantial requirement 
+  // Navigate based on cartItemCount
   const handleCartClick = () => {
     if (cartItemCount === 0) {
-      navigate('/emptycart');  // Redirect to EmptyCart if cartItemCount is 0
+      navigate('/emptycart');
     } else {
-      navigate('/cartPage');  // Redirect to CartPage if cartItemCount > 0
+      navigate('/cartPage');
     }
+  };
+
+  // Toggle sidebar visibility
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen); // This will toggle the sidebar visibility
   };
 
   return (
     <header>
       <nav>
-        <h1 className="logo">Sweet Treats</h1>
-        <ul>
+        {/* Logo and Mobile Menu Icon for smaller screens */}
+        <div className="logo-and-menu">
+          <h1 className="logo">Sweet Treats</h1>
+          <div className="menu-icon" onClick={toggleSidebar}>
+            ☰
+          </div>
+        </div>
+
+        {/* Sidebar for small screens */}
+        <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+          <ul>
+            <li className="nav-item"><a className="nav-link" href="/home">Home</a></li>
+            <li className="nav-item"><a className="nav-link" href="/Menu">Menu</a></li>
+            <li className="nav-item"><a className="nav-link" href="/aboutus">About Us</a></li>
+            <li className="nav-item"><a className="nav-link" href="/contactus">Contact Us</a></li>
+            <li className="nav-item">
+              <button className="cart" onClick={handleCartClick}>
+                🛒 {cartItemCount} Items
+              </button>
+            </li>
+            {/* Search Bar Inside Sidebar */}
+            <li className="search-item">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyUp={handleSearch}
+              />
+            </li>
+          </ul>
+        </div>
+
+        {/* Desktop Navigation */}
+        <ul className="nav-links">
           <li className="nav-item"><a className="nav-link" href="/home">Home</a></li>
           <li className="nav-item"><a className="nav-link" href="/Menu">Menu</a></li>
           <li className="nav-item"><a className="nav-link" href="/aboutus">About Us</a></li>
           <li className="nav-item"><a className="nav-link" href="/contactus">Contact Us</a></li>
         </ul>
-
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          onKeyUp={handleSearch}
-        />
-
-        {/*conditionally navigate to /cart or /emptycart based on cartItemCount */}
-        <span>
-          <button className="cart" id="cartLink" onClick={handleCartClick}>
-            🛒
-          </button>
-        </span>
       </nav>
     </header>
   );
