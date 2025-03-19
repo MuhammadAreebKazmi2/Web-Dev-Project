@@ -84,6 +84,23 @@ const Header = ({ cartItemCount, setCartItemCount }) => {
           <li className="nav-item"><a className="nav-link" href="/Menu">Menu</a></li>
           <li className="nav-item"><a className="nav-link" href="/aboutus">About Us</a></li>
           <li className="nav-item"><a className="nav-link" href="/contactus">Contact Us</a></li>
+          {/* Search Bar Inside Sidebar */}
+          <li className="search-item">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyUp={handleSearch}
+              />
+            </li>
+          <li className="nav-item">
+              <button className="cart" onClick={handleCartClick}>
+                🛒 {cartItemCount} Items
+              </button>
+          </li>
+          
         </ul>
       </nav>
     </header>
