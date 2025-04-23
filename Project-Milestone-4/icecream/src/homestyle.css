@@ -61,7 +61,7 @@
 .sweet-treats-input-group label {
   font-weight: bold;
   margin-bottom: 6px;
-  color: #333;
+  color: wi;
 }
 
 .sweet-treats-input-group input {
@@ -80,7 +80,7 @@
 
 .sweet-treats-input-group input:focus {
   outline: none;
-  background-color: black;
+  /* background-color: ; */
 }
 
 /* Updated password container to align with new input group */

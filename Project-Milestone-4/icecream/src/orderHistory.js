@@ -94,7 +94,7 @@ const OrdersHistory = () => {
             {successMessage && (
                 <div className="success-message">
                     <span>{successMessage}</span>
-                    <button onClick={() => navigate('/cart')} className="view-cart-btn">
+                    <button onClick={() => navigate('/cartPage')} className="view-cart-btn">
                         View Cart
                     </button>
                 </div>
