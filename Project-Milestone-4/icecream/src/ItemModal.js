@@ -58,7 +58,7 @@ const ItemModal = ({ setCartItemCount }) => {
     return acc + (topping ? topping.price : 0);
   }, 0);
   
-  const itemTotalPrice = (basePrice + totalToppingPrice) * quantity;
+  const itemTotalPrice = (basePrice + totalToppingPrice);
 
   const handleAddToCart = () => {
     const errors = {};
@@ -125,7 +125,7 @@ const ItemModal = ({ setCartItemCount }) => {
             {/* Toppings Selection */}
             <div className="form-group">
               <label>Select Toppings</label>
-              <div>
+              <div className='toppings'>
                 {toppingOptions.map(topping => (
                   <div key={topping.id}>
                     <input
@@ -143,7 +143,7 @@ const ItemModal = ({ setCartItemCount }) => {
             {/* Quantity Selection */}
             <div className="form-group">
               <label>Quantity</label>
-              <input
+              <input className='quantity'
                 type="number"
                 value={quantity}
                 min="1"
@@ -153,7 +153,7 @@ const ItemModal = ({ setCartItemCount }) => {
             </div>
 
             {/* Display Total Price */}
-            <p>Total Price: Rs. {itemTotalPrice}</p>
+            <p>Single Price with toppings: Rs. {itemTotalPrice}</p>
 
             {/* Add to Cart Button */}
             <button className="btn-add-to-cart" onClick={handleAddToCart}>

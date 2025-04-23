@@ -77,6 +77,8 @@
   margin-top: 15px;
   padding-top: 10px;
   border-top: 1px solid #eee;
+  font-size: 12px;
+  /* flex-wrap: wrap; */
 }
 
 /* Rest of your existing styles... */
@@ -134,9 +136,10 @@
 
 .order-total {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   color: #333;
 }
+
 
 .loading, .error {
   text-align: center;
@@ -146,4 +149,41 @@
 
 .error {
   color: #ff5252;
+}
+
+/* Style for the Reorder button */
+.order-actions {
+  display: flex;
+  justify-content: center;  /* Align the button to the right */
+  margin-top: 10px;  /* Space from the price breakdown */
+}
+
+.reorder-btn {
+  background-color: #4CAF50;  /* Green background */
+  color: white;  /* White text */
+  padding: 10px 20px;  /* Padding around the button */
+  font-size: 16px;  /* Font size for the button */
+  border: none;  /* Remove border */
+  border-radius: 5px;  /* Rounded corners */
+  cursor: pointer;  /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s ease-in-out;  /* Smooth hover effect */
+}
+
+.reorder-btn:hover {
+  background-color: #45a049;  /* Slightly darker green on hover */
+  transform: translateY(-2px);  /* Button slightly lifts on hover */
+}
+
+.reorder-btn:focus {
+  outline: none;  /* Remove outline on focus */
+}
+
+.reorder-btn:active {
+  background-color: #388e3c;  /* Even darker green when the button is clicked */
+  transform: translateY(0);  /* Reset the lift effect when clicked */
+}
+
+.reorder-btn:disabled {
+  background-color: #c5e1a5;  /* Disabled state with lighter green */
+  cursor: not-allowed;  /* Show not-allowed cursor */
 }

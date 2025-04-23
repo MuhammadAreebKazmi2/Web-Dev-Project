@@ -2,11 +2,11 @@
 .sweet-treats-container {
   background: url('home_image.jpg') no-repeat center center fixed;
   background-size: cover;
-  min-height: 80vh;
+  min-height: 78vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertically center the content */
-  align-items: center; /* Horizontally center the content */
+  justify-content: center; 
+  align-items: center; 
 }
 
 .form-error-message {
@@ -20,7 +20,7 @@
 
 
 /* SweetTreats background section */
-.sweet-treats-background-section {
+/* .sweet-treats-background-section {
   flex: 1;
   display: flex;
   align-items: center;
@@ -28,7 +28,7 @@
   width: 100%;
   position: fixed;
   height: 100%;
-}
+} */
 
 /* SweetTreats login container */
 .sweet-treats-login-container {

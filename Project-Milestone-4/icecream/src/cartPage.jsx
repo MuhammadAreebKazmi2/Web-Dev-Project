@@ -35,7 +35,7 @@ function CartPage() {
   
     // Price breakdown
     const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const tax = subtotal * 0.13;  // Assuming 13% tax
+    const tax = subtotal * 0.18;  // Assuming 10% tax
     const deliveryFee = 100;
     const tip = 0;  // Tip can be fetched from state
     const total = subtotal + tax + deliveryFee + tip;
@@ -98,12 +98,12 @@ function CartPage() {
                   <div className="product-price">Price: Rs. {item.price}</div>
                   
                   {/* Base */}
-                  <div className='selected-base'>
+                  <div className='selected-base-1'>
                     <strong>Base:</strong> {item.selectedBase}
                   </div>
                   
                   {/* Toppings */}
-                  <div className="selected-toppings">
+                  <div className="selected-toppings-1">
                     <strong>Toppings:</strong> 
                     {item.selectedToppings && item.selectedToppings.length > 0 
                       ? item.selectedToppings.map(toppingId => {
@@ -139,16 +139,16 @@ function CartPage() {
             <div>Delivery Fee: Rs. {deliveryFee}</div>
             <label>
               Tip Your Rider:
-              <input
+              <input className='rider'
                 type="number"
                 value={tip}
                 onChange={(e) => setTip(parseInt(e.target.value, 10))}
                 min="0"
               />
             </label>
-            <div>Total: Rs. {total}</div>
+            <div><strong>Total: Rs. {total}</strong></div>
             <></>
-            <label>Delivery Address: <input></input></label>
+            <label>Delivery Address: <input className='address'></input></label>
             <></>
             <button onClick={orderPlace}>Confirm Order</button>
           </div>

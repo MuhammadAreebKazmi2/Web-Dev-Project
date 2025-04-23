@@ -1,0 +1,101 @@
+/* General Styles */
+/* .App {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  } */
+  
+  .empty-cart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Ensure it doesn't stretch too wide */
+  }
+  
+  .empty-cart-message p {
+    font-size: 18px;
+    color: #333;
+    margin-top: 20px;
+    line-height: 1.5;
+  }
+  
+  .empty-cart-message img.empty-cart-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+  
+  .back-to-menu-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-to-menu-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .empty-cart-container {
+      padding: 15px;
+    }
+  
+    .empty-cart-message p {
+      font-size: 16px;
+    }
+  
+    .empty-cart-message img.empty-cart-icon {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .back-to-menu-btn {
+      padding: 8px 18px;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .empty-cart-container {
+      padding: 10px;
+      width: 90%;
+    }
+  
+    .empty-cart-message p {
+      font-size: 14px;
+    }
+  
+    .empty-cart-message img.empty-cart-icon {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .back-to-menu-btn {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+  }
+  

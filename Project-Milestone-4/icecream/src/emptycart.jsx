@@ -27,7 +27,7 @@ function CartPage() {
     navigate("/Menu")
   }
 
-  const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
   const tax = subtotal * 0.13;  // Assuming 13% tax
   const deliveryFee = 100;
   const total = subtotal + tax + deliveryFee + tip;

@@ -37,6 +37,7 @@
   padding: 25px;  /* Increased padding */
   margin-bottom: 20px;  /* Increased margin */
   border-radius: 10px;
+  /* flex-wrap: wrap; */
 }
 
 .cart-page .cart-item-img {
@@ -53,12 +54,13 @@
 
 .cart-page .cart-item-info .product-name {
   font-weight: bold;
-  font-size: 18px;  /* Increased font size */
+  font-size: 20px;  /* Increased font size */
 }
 
 .cart-page .cart-item-info .product-price {
   font-size: 16px;  /* Increased font size */
   color: #555;
+  flex-wrap: wrap;
 }
 
 .cart-page .cart-item-info .selected-base-1 {
@@ -125,6 +127,28 @@
   margin: 10px;
 }
 
+.cart-page .bill-payment .rider {
+  margin-top: 15px;  /* Increased margin */
+  width: 100px;  /* Increased input field size */
+  padding: 8px;  /* Increased padding */
+  font-size: 16px;  /* Increased font size */
+  margin-left: 10px;
+}
+
+.cart-page .bill-payment label .address {
+  margin-top: 15px;  /* Increased margin */
+  width: 200px;  /* Adjust width as needed */
+  height: 10px;  /* Fixed height, adjust as necessary */
+  padding: 8px;  /* Increased padding */
+  font-size: 16px;  /* Increased font size */
+  margin-left: 10px;
+  resize: vertical;  /* Allow the user to resize the height of the textarea */
+  overflow-y: auto;  /* Enable vertical scrolling when content exceeds height */
+  white-space: pre-wrap;  /* Ensure text wraps within the box */
+  word-wrap: break-word;  /* Break long words if necessary */
+}
+
+
 .cart-page .clear {
   background-color: #ea6b0a;
   width: 30%;  /* Increased width */
@@ -138,7 +162,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
   .cart-page .main-content {
     flex-direction: column;  /* Stack the sections vertically on small screens */
   }
@@ -148,5 +172,92 @@
     width: 100%;  /* Full width for both sections on small screens */
     margin-left: 0;
     margin-bottom: 30px;  /* Increased margin */
+  }
+}
+
+.empty-cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Make sure it spans the full width */
+  /* max-width:fit-content; Ensure the container doesn't stretch too wide */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+.empty-cart-message p {
+  font-size: 40px;
+  color: #333;
+  margin-top: 20px;
+  line-height: 5;
+  flex-wrap: wrap;
+}
+
+.empty-cart-message img.empty-cart-icon {
+  width: 400px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.back-to-menu-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-menu-btn:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .empty-cart-container {
+    padding: 15px;
+  }
+
+  .empty-cart-message p {
+    font-size: 16px;
+  }
+
+  .empty-cart-message img.empty-cart-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .back-to-menu-btn {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .empty-cart-container {
+    padding: 10px;
+    width: 90%;
+  }
+
+  .empty-cart-message p {
+    font-size: 14px;
+  }
+
+  .empty-cart-message img.empty-cart-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .back-to-menu-btn {
+    padding: 8px 16px;
+    font-size: 12px;
   }
 }
