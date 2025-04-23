@@ -1,0 +1,225 @@
+/* SweetTreats container */
+.sweet-treats-container {
+  background: url('home_image.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
+}
+
+.form-error-message {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background-color:rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+
+/* SweetTreats background section */
+.sweet-treats-background-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  height: 100%;
+}
+
+/* SweetTreats login container */
+.sweet-treats-login-container {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(222, 205, 205, 0.8);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+}
+
+/* Styling for the heading */
+.sweet-treats-login-container h2 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.sweet-treats-input-group {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 15px;
+}
+
+.sweet-treats-input-group label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: wi;
+}
+
+.sweet-treats-input-group input {
+  width: 100%;
+  padding: 12px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-size: 16px;
+}
+
+.sweet-treats-input-group input::placeholder {
+  color: black;
+}
+
+.sweet-treats-input-group input:focus {
+  outline: none;
+  /* background-color: ; */
+}
+
+/* Updated password container to align with new input group */
+.sweet-treats-password-container {
+  position: relative;
+  width: 100%;
+}
+
+.sweet-treats-password-container input {
+  width: 104%;
+  padding-right: 40px; /* space for the eye icon */
+}
+
+.sweet-treats-toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: black;
+  font-size: 18px;
+}
+
+/* Username and Password field styling */
+.sweet-treats-username-container input,
+.sweet-treats-password-container input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-size: 16px;
+}
+
+.sweet-treats-username-container input::placeholder,
+.sweet-treats-password-container input::placeholder {
+  color: black;
+}
+
+.sweet-treats-username-container input:focus,
+.sweet-treats-password-container input:focus {
+  outline: none;
+  background-color: white;
+}
+
+/* Password container */
+.sweet-treats-password-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 104.5%;
+}
+
+.sweet-treats-toggle-password {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+}
+
+/* Button */
+.sweet-treats-login-button {
+  width: 103%;
+  padding: 20px;
+  background: #28a745; /* Green color */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.sweet-treats-submit-button {
+  width: 100%;
+  padding: 20px;
+  background: #28a745; /* Green color */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+
+.sweet-treats-login-button:hover {
+  background: #218838; /* Darker green */
+}
+
+.sweet-treats-submit-button:hover {
+  background: #218838; /* Darker green */
+}
+
+/* Footer styles */
+/* SweetTreats footer styles */
+.sweet-treats-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  z-index: 9999; /* Ensure footer is on top */
+}
+
+.sweet-treats-custom-footer {
+  background-color: lightgray !important;
+  text-align: center;
+  position: relative; /* Establish stacking context */
+  z-index: 10000; /* Ensure footer content is above other elements */
+}
+
+.sweet-treats-custom-footer a {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sweet-treats-custom-footer .instagram {
+  margin: 0 10px;
+  color: white;
+}
+
+.sweet-treats-custom-footer .instagram:hover {
+  color: orange;
+}
+
+.sweet-treats-custom-footer .facebook {
+  margin: 0 10px;
+  color: white;
+}
+
+.sweet-treats-custom-footer .facebook:hover {
+  color: orange;
+}
