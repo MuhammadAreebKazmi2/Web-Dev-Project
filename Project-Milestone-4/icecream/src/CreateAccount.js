@@ -47,14 +47,14 @@ const CreateAccount = () => {
       setEditEnabled(true);
 
       const loginInfo = {
-        username,
+        email,
         isAuthenticated: true,
       };
 
-      navigate('/Menu', { state: { loginInfo } });
+      navigate('/home', { state: { loginInfo } });
     } catch (err) {
       console.error('Registration failed:', err);
-      setErrors({ username: 'Username already exists or server error.' });
+      setErrors({ email: 'Email account already in use' });
     }
   };
 
@@ -131,7 +131,7 @@ const CreateAccount = () => {
             Submit
           </button>
 
-          <button
+          {/* <button
             type="button"
             className="sweet-treats-submit-button"
             style={{ marginTop: '10px', opacity: editEnabled ? 1 : 0.5 }}
@@ -139,7 +139,7 @@ const CreateAccount = () => {
             // onClick={() => alert('Now you can edit your info!')}
           >
             Edit
-          </button>
+          </button> */}
         </form>
       </div>
     </div>
