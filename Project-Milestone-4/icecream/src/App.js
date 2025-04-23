@@ -9,6 +9,7 @@ import CartPage from './cartPage';
 import ItemModal from './ItemModal';
 import EmptyCart from './emptycart';
 import OrderHistory from './orderHistory'
+import EditAccount from './editAccount';  // Import the new component
 import Header from './Header';
 import Footer from './Footer';
 
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/emptycart" element={<EmptyCart />} />
         <Route path="/ItemModal" element={<ItemModal />} />
         <Route path="/OrderHistory" element={<OrderHistory />} />
+        <Route path="/EditAccount" element={<EditAccount/>} /> 
       </Routes>
       <Footer/>
     </CartProvider>
