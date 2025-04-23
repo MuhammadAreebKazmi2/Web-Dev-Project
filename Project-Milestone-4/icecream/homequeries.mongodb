@@ -1,0 +1,16 @@
+//output of these can be seen in the output panel 
+
+//for viewing all users
+db.users.find().pretty();
+
+//find a specific user by username
+db.users.find({ username: "hira rathore" }).pretty();
+
+//updating user's password 
+db.users.updateOne({ username: "hira rathore" }, { $set: { password: "iamselfobsessed" } });
+
+//deleting a user by username
+db.users.deleteOne({ username: "hira rathore" });
+
+
+
