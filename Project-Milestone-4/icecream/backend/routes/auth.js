@@ -27,12 +27,11 @@ router.post('/register', async (req, res) => {
 
 
 //login existing user
-// Login existing user
 router.post('/login', async (req, res) => {
-  const { email, password } = req.body;  // Use email instead of username
+  const { username, password } = req.body;
 
   try {
-    const user = await User.findOne({ email });  // Search by email
+    const user = await User.findOne({ username });
 
     if (!user || user.password !== password) {
       return res.status(401).json({ message: 'Invalid credentials' });
@@ -42,9 +41,10 @@ router.post('/login', async (req, res) => {
     res.json({ 
       message: 'Login successful',
       user: {
-        _id: user._id,  // Include user ID
-        username: user.username,  // Include username
-        email: user.email  // Include email
+        _id: user._id,  // Make sure to include this
+        username: user.username,
+        email: user.email
+        // Don't include password
       }
     });
   } catch (err) {
@@ -55,7 +55,7 @@ router.post('/login', async (req, res) => {
 
 router.put('/update/:userId', async (req, res) => {
   // Allow updating fullName and password
-  const { fullName, password } = req.body;
+  const { username, password } = req.body;
   const { userId } = req.params;
 
   // Basic validation
@@ -63,8 +63,8 @@ router.put('/update/:userId', async (req, res) => {
       return res.status(400).json({ message: 'User ID is required' });
   }
   // Ensure at least one field is being updated
-  if (!fullName && !password) {
-      return res.status(400).json({ message: 'No update information provided (fullName or password)' });
+  if (!username && !password) {
+      return res.status(400).json({ message: 'No update information provided (username or password)' });
   }
 
 
@@ -75,8 +75,8 @@ router.put('/update/:userId', async (req, res) => {
     }
 
     // Update fields if they are provided in the request body
-    if (fullName) {
-        user.fullName = fullName;
+    if (username) {
+        user.username = username;
     }
     if (password) {
         // Again, hash the password in a real application before saving
@@ -90,7 +90,7 @@ router.put('/update/:userId', async (req, res) => {
         message: 'User updated successfully',
         user: {
              _id: updatedUser._id,
-             fullName: updatedUser.fullName,
+             username: updatedUser.username,
              email: updatedUser.email
          }
      });
@@ -122,30 +122,20 @@ router.delete('/delete/:userId', async (req, res) => {
 });
 
 
-// Fetch user details (return fullName)
 router.get('/user/:userId', async (req, res) => {
-  const { userId } = req.params;
-
-  if (!userId) {
-      return res.status(400).json({ message: 'User ID is required' });
-  }
-
   try {
-    // Exclude password from the result using .select()
-    const user = await User.findById(userId).select('-password');
+    const user = await User.findById(req.params.userId);
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-    // Return relevant user details
-    res.json({
-      _id: user._id, // Good practice to return ID as well
-      fullName: user.fullName,
-      email: user.email,
-      dob: user.dob
+    res.json({ 
+      username: user.username, 
+      email: user.email, 
+      dob: user.dob 
     });
   } catch (err) {
-    console.error("Fetch User Error:", err);
-    res.status(500).json({ message: 'Server error fetching user data' });
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
   }
 });
 

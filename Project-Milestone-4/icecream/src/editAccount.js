@@ -17,7 +17,11 @@ const EditAccount = () => {
       axios.get(`http://localhost:5000/api/auth/user/${userId}`)
         .then((response) => {
           console.log('User data received:', response.data); // Debug log
-          setUsername(response.data.username);
+          if (response.data && response.data.username) {
+            setUsername(response.data.username); // Set the username from the response
+          } else {
+            setErrorMessage('Username not found in the response');
+          }
           setLoading(false);
         })
         .catch((err) => {
@@ -48,7 +52,7 @@ const EditAccount = () => {
       const response = await axios.put(
         `http://localhost:5000/api/auth/update/${userId}`,
         {
-          username,
+          username,  // Send the username to the backend
           password: newPassword,
         }
       );
@@ -112,9 +116,10 @@ const EditAccount = () => {
           <input
             type="text"
             id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={username}  // Controlled input, value is from state
+            onChange={(e) => setUsername(e.target.value)}  // Update state when input changes
             style={{ width: '100%', padding: '8px' }}
+            disabled  // Prevent the username from being edited
           />
         </div>
 
