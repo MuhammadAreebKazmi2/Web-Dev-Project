@@ -28,7 +28,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(206, 108, 108);
+  /* background-color: rgb(206, 108, 108); */
+  background-color: rgb(247, 138, 205);
+  /* background-color: #07defb; */
   padding: 15px 10px;
   position: sticky;
   top: 0;
