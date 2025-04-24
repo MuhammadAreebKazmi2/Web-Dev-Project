@@ -1,0 +1,78 @@
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #80DEEA;
+  padding: 20px;
+  transform: translateX(-100%); /* Initially hidden */
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Show the sidebar when open */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Close Sidebar button */
+.close-sidebar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: #333;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  z-index: 1010;  /* Ensure it is above the sidebar content */
+}
+
+.close-sidebar:hover {
+  color: red;
+}
+
+/* Mobile: Navbar toggle icon */
+.menu-icon {
+  display: block;
+  cursor: pointer;
+  font-size: 30px;
+  color: #333;
+  z-index: 1100;  /* Ensure the menu icon is above the sidebar */
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    display: none;  /* Hide sidebar on desktop */
+  }
+
+  .menu-icon {
+    display: none;  /* Hide menu icon on larger screens */
+  }
+}

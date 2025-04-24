@@ -1,22 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { CartProvider } from './CartContext';
-// import MenuComponent from './MenuComponent';
 import MenuComponent from './AreebMenuComponent';
 import SweetTreats from './home';
 import CreateAccount from './CreateAccount';
 import CartPage from './cartPage';
 import ItemModal from './ItemModal';
 import EmptyCart from './emptycart';
-import OrderHistory from './orderHistory'
-import EditAccount from './editAccount';  // Import the new component
+import OrderHistory from './orderHistory';
+import EditAccount from './editAccount';
 import Header from './Header';
 import Footer from './Footer';
+import Sidebar from './Sidebar';  // Import Sidebar Component
 
 const App = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false); // State to toggle sidebar visibility
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen); // Toggle sidebar visibility
+  };
+
   return (
     <CartProvider>
       <Header />
+
       <Routes>
         <Route path="/Home" element={<SweetTreats />} />  
         <Route path="/CreateAccount" element={<CreateAccount />} />  
@@ -26,9 +33,10 @@ const App = () => {
         <Route path="/emptycart" element={<EmptyCart />} />
         <Route path="/ItemModal" element={<ItemModal />} />
         <Route path="/OrderHistory" element={<OrderHistory />} />
-        <Route path="/EditAccount" element={<EditAccount/>} /> 
+        <Route path="/EditAccount" element={<EditAccount />} /> 
       </Routes>
-      <Footer/>
+
+      <Footer />
     </CartProvider>
   );
 };

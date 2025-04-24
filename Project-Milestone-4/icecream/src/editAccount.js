@@ -102,7 +102,7 @@ const EditAccount = () => {
   }
 
   return (
-    <div style={{ maxWidth: '500px', margin: '0 auto', padding: '20px' }}>
+    <div style={{ maxWidth: '500px', height:'73vh', margin: '0 auto', padding: '20px' }}>
       <h2>Edit Account</h2>
       {errorMessage && (
         <div style={{ color: 'red', marginBottom: '15px' }}>{errorMessage}</div>

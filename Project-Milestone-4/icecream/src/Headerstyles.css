@@ -33,7 +33,8 @@
     text-decoration: none;
     display: block;
     width: 100%;
-    text-align: left;
+    text-align: center;
+    justify-content: left;
     background: none;
     border: none;
     cursor: pointer;
@@ -53,6 +54,8 @@
   
   .header .nav-items {
     display: flex;
+    align-items: center;
+    /* justify-content: center; */
     gap: 20px; /* Add spacing between the menu items */
   }
   
@@ -66,6 +69,105 @@
   
   .header .cart-icon img {
     width: 30px; /* Adjust the icon size */
+    align-items: left;
     height: auto;
   }
   
+/* Mobile: Align Cart and User Icon to Left */
+@media (max-width: 768px) {
+  /* Stack header items vertically */
+  .header {
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center text */
+    padding: 15px;
+  }
+
+  /* Align nav items (cart and user icon) to the left */
+  .header .nav-items {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 10px;
+    width: 100%;
+  }
+
+  .header .cart-icon,
+  .header .user-icon {
+    margin-left: 0; /* Align the icons to the left */
+  }
+
+  .header .cart-icon {
+    margin-top: 10px; /* Space between cart and user icon */
+  }
+
+  .header .user-icon {
+    margin-top: 10px; /* Space between cart and user icon */
+  }
+
+  /* User Dropdown button */
+  .user-dropdown button {
+    font-size: 14px; /* Adjust font size */
+  }
+
+  /* Adjust user dropdown appearance */
+  .user-dropdown {
+    min-width: 180px; /* Ensure dropdown is wide enough on mobile */
+  }
+
+  /* Mobile Cart Icon Image */
+  .header .cart-icon img {
+    width: 25px; /* Adjust the cart icon size */
+  }
+
+  /* Mobile User Icon */
+  .header .user-icon {
+    margin-left: 0; /* Align user icon to the left */
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column; /* Stack items vertically */
+    text-align: left; /* Align text to left */
+    padding: 10px;
+    width: 100%;
+  }
+
+  .header .nav-items {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 10px;
+    width: 100%;
+  }
+
+  /* Align Cart Icon and User Icon to the Left */
+  .header .cart-icon,
+  .header .user-icon {
+    margin-left: 0; /* Align both icons to the left */
+  }
+
+  .header .cart-icon {
+    margin-top: 10px; /* Add spacing between cart and user icon */
+  }
+
+  .header .user-icon {
+    margin-top: 10px; /* Add spacing between cart and user icon */
+  }
+
+  /* Adjust user dropdown button size */
+  .user-dropdown button {
+    font-size: 12px; /* Further reduce font size */
+  }
+
+  /* Cart Icon Image */
+  .header .cart-icon img {
+    width: 20px; /* Further reduce the cart icon size */
+  }
+
+  /* User Icon */
+  .header .user-icon {
+    margin-left: 0; /* Align user icon to the left */
+  }
+}

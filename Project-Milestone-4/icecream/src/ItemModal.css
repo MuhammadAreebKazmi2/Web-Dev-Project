@@ -150,26 +150,52 @@
     transform: translateY(-2px);
   }
   
+  
   /* Responsive */
   @media (max-width: 768px) {
     .modal-content {
-      flex-direction: column;
       width: 90%;
-      max-width: 95%;
       padding: 20px;
-    }
-  
-    .modal-image {
-      width: 100%;
-      margin-bottom: 20px;
     }
   
     .modal-details {
       width: 100%;
+      padding-left: 0;
+      padding-top: 10px;
     }
   
     .btn-add-to-cart {
       padding: 10px;
     }
   }
+
   
+@media (max-width: 480px) {
+  .modal-content {
+    flex-direction: column;
+    width: 90%;
+    max-width: 100%;
+    /* padding: 15px; */
+    align-items: center;
+    justify-content:flex-start
+  }
+
+  .modal-header h5 {
+    font-size: 20px; /* Slightly smaller heading */
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 14px;
+    padding: 8px; /* Adjust padding for smaller screens */
+  }
+
+  .btn-add-to-cart {
+    padding: 10px;
+    font-size: 14px; /* Adjust font size for mobile */
+  }
+
+  .modal-image img {
+    max-height: 250px; /* Adjust image size for smaller screens */
+  }
+}

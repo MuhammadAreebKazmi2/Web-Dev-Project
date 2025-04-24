@@ -16,9 +16,9 @@ const Header = ({ cartItemCount }) => {
   const isMenuPage = location.pathname === '/Menu';
   const isAuthenticated = localStorage.getItem('isAuthenticated');
 
-  const handleSearchChange = useCallback((e) => {
-    setSearchQuery(e.target.value);
-  }, []);
+  // const handleSearchChange = useCallback((e) => {
+  //   setSearchQuery(e.target.value);
+  // }, []);
 
   const handleSearch = useCallback((event) => {
     if (event.key === 'Enter') {
@@ -100,7 +100,7 @@ const Header = ({ cartItemCount }) => {
       <li>
         <button className="cart" onClick={handleCartClick}> 🛒 {cartItemCount}</button>
       </li>
-      {isMenuPage && (
+      {/* {isMenuPage && (
         <li className="search-item">
           <input
             ref={searchInputRef}
@@ -110,8 +110,8 @@ const Header = ({ cartItemCount }) => {
             onChange={handleSearchChange}
             onKeyUp={handleSearch}
           />
-        </li>
-      )}
+        </li> */}
+      
     </>
   ));
 

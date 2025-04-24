@@ -14,88 +14,157 @@
     padding: 20px;
   } */
   
+/* General Styles */
+.App {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Empty Cart Container */
+.empty-cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px; /* Ensure it doesn't stretch too wide */
+  margin: 0 auto; /* Center the container */
+}
+
+.empty-cart-message p {
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+.empty-cart-message img.empty-cart-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+/* Button Styling */
+.back-to-menu-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-menu-btn:hover {
+  background-color: #45a049;
+}
+
+/* Mobile-Friendly Design */
+@media (max-width: 768px) {
   .empty-cart-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px; /* Ensure it doesn't stretch too wide */
+    padding: 15px;
   }
-  
+
   .empty-cart-message p {
-    font-size: 18px;
-    color: #333;
-    margin-top: 20px;
-    line-height: 1.5;
-  }
-  
-  .empty-cart-message img.empty-cart-icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 20px;
-  }
-  
-  .back-to-menu-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
     font-size: 16px;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
   }
-  
-  .back-to-menu-btn:hover {
-    background-color: #45a049;
+
+  .empty-cart-message img.empty-cart-icon {
+    width: 60px;
+    height: 60px;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .empty-cart-container {
-      padding: 15px;
-    }
-  
-    .empty-cart-message p {
-      font-size: 16px;
-    }
-  
-    .empty-cart-message img.empty-cart-icon {
-      width: 60px;
-      height: 60px;
-    }
-  
-    .back-to-menu-btn {
-      padding: 8px 18px;
-      font-size: 14px;
-    }
+
+  .back-to-menu-btn {
+    padding: 8px 18px;
+    font-size: 14px;
   }
-  
-  @media (max-width: 480px) {
-    .empty-cart-container {
-      padding: 10px;
-      width: 90%;
-    }
-  
-    .empty-cart-message p {
-      font-size: 14px;
-    }
-  
-    .empty-cart-message img.empty-cart-icon {
-      width: 50px;
-      height: 50px;
-    }
-  
-    .back-to-menu-btn {
-      padding: 8px 16px;
-      font-size: 12px;
-    }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #80DEEA;
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Space out the content */
   }
-  
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .menu-icon {
+    display: block;
+    font-size: 30px;
+    color: #333;
+    z-index: 1100;
+    cursor: pointer;
+  }
+
+  /* Adjust Nav Links inside Sidebar */
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Sidebar Links */
+  .sidebar ul li a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+/* Desktop View (Min-width 769px) */
+@media (max-width: 380px) {
+  .empty-cart-container {
+    padding: 10px;
+    width: 90%; /* Reduce container width on very small screens */
+    height: auto; /* Ensure container is not forced to fill the entire height */
+  }
+
+  .empty-cart-message p {
+    font-size: 14px; /* Further reduce text size on very small screens */
+  }
+
+  .empty-cart-message img.empty-cart-icon {
+    width: 80px; /* Further scale image down */
+    height: 80px;
+  }
+
+  .back-to-menu-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    width: 100%; /* Button takes up full width */
+  }
+}

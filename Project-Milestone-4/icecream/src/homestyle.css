@@ -56,12 +56,14 @@
   flex-direction: column;
   align-items: flex-start;
   margin-top: 15px;
+  /* margin-bottom: 10px; */
 }
 
 .sweet-treats-input-group label {
   font-weight: bold;
-  margin-bottom: 6px;
   color: wi;
+  margin-bottom: 6px;
+  /* padding-top: 6px; */
 }
 
 .sweet-treats-input-group input {
@@ -110,6 +112,7 @@
   width: 100%;
   padding: 12px;
   margin-top: 12px;
+  margin-bottom: 12px;
   background: white;
   border: none;
   border-radius: 8px;
@@ -224,3 +227,52 @@
   color: orange;
 }
 
+@media (max-width: 768px) {
+  .sweet-treats-login-container {
+    padding: 30px;
+    width: 100%; 
+  }
+
+  .sweet-treats-login-container h2 {
+    font-size: 24px; /* Reduce heading size on smaller screens */
+  }
+
+  .sweet-treats-input-group input {
+    font-size: 14px; /* Smaller font size for inputs */
+    padding: 10px; /* Reduce padding for better fit */
+  }
+
+  .sweet-treats-login-button, .sweet-treats-submit-button {
+    padding: 15px;
+    font-size: 16px; /* Adjust button size for smaller screens */
+  }
+
+  .sweet-treats-password-container input {
+    font-size: 14px; /* Adjust password input size */
+  }
+}
+
+@media (max-width: 480px) {
+  .sweet-treats-login-container {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .sweet-treats-login-container h2 {
+    font-size: 20px; /* Smaller font size on mobile */
+  }
+
+  .sweet-treats-input-group input {
+    font-size: 12px;
+    padding: 8px; /* Even smaller input fields for mobile */
+  }
+
+  .sweet-treats-login-button, .sweet-treats-submit-button {
+    padding: 12px;
+    font-size: 14px; /* Adjust button size for mobile */
+  }
+
+  .sweet-treats-password-container input {
+    font-size: 12px; /* Adjust password field size */
+  }
+}
