@@ -8,6 +8,7 @@ import CartPage from './cart/cartPage';
 import ItemModal from './menu/ItemModal';
 import EmptyCart from './cart/emptycart';
 import OrderHistory from './order/orderHistory';
+import OrderReceived from './order/orderReceived';
 import EditAccount from './editAccount';
 import Header from './nav/Header';
 import Footer from './nav/Footer';
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/emptycart" element={<EmptyCart />} />
         <Route path="/ItemModal" element={<ItemModal />} />
         <Route path="/OrderHistory" element={<OrderHistory />} />
+        <Route path="/orderreceived" element={<OrderReceived />} />
         <Route path="/EditAccount" element={<EditAccount />} /> 
       </Routes>
 
