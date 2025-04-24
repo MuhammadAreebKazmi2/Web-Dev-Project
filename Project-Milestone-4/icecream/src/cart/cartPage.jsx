@@ -60,7 +60,7 @@ function CartPage() {
   
     try {
       // Send the order data to the backend
-      const response = await fetch('http://localhost:5000/api/order/place-order', {
+      const response = await fetch('https://backend-eight-kohl-24.vercel.app/api/order/place-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

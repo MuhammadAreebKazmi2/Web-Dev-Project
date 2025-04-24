@@ -16,7 +16,7 @@ const EditAccount = () => {
     console.log('Fetching user with ID:', userId); // Debug log
     
     if (userId) {
-      axios.get(`http://localhost:5000/api/auth/user/${userId}`)
+      axios.get(`https://backend-eight-kohl-24.vercel.app/api/auth/user/${userId}`)
         .then((response) => {
           console.log('User data received:', response.data); // Debug log
           if (response.data && response.data.username) {
@@ -52,7 +52,7 @@ const EditAccount = () => {
       console.log('Attempting to update user:', userId); // Debug log
       
       const response = await axios.put(
-        `http://localhost:5000/api/auth/update/${userId}`,
+        `https://backend-eight-kohl-24.vercel.app/api/auth/update/${userId}`,
         {
           username,  // Send the username to the backend
           password: newPassword,
@@ -81,7 +81,7 @@ const EditAccount = () => {
       console.log('Attempting to delete user:', userId); // Debug log
       
       const response = await axios.delete(
-        `http://localhost:5000/api/auth/delete/${userId}`
+        `https://backend-eight-kohl-24.vercel.app/api/auth/delete/${userId}`
       );
   
       console.log('Delete response:', response); // Debug log

@@ -24,7 +24,7 @@ const OrdersHistory = () => {
                 }
 
                 const response = await axios.get(
-                    `http://localhost:5000/api/order/user-orders/${userId}`
+                    `https://backend-eight-kohl-24.vercel.app/api/order/user-orders/${userId}`
                 );
 
                 setOrders(response.data);

@@ -28,7 +28,7 @@ const SweetTreats = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await axios.post('https://backend-eight-kohl-24.vercel.app/api/auth/login', {
         username,
         password,
       });
