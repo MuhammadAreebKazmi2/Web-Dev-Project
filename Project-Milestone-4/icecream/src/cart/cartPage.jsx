@@ -6,6 +6,8 @@ import './cartstyle.css'; // Assuming you will put all the CSS styles here
 function CartPage() {
   const { cartItems, clearCart, updateQuantity, removeItem, toppingOptions } = useCart();  // Access the cart items and functions from the context
   const [tip, setTip] = React.useState(0);  // Local state for tip
+  const [errorMessage, setErrorMessage] = React.useState('');  // Local state for error message
+  const [successMessage, setSuccessMessage] = React.useState('');  // Local state for success message
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,7 +23,7 @@ function CartPage() {
 
   const orderPlace = async () => {
     if (cartItems.length === 0) {
-      alert('Your cart is empty!');
+      setErrorMessage('Your cart is empty!');
       return;
     }
   
@@ -29,17 +31,22 @@ function CartPage() {
     const userId = localStorage.getItem('userId');
   
     if (!userId) {
-      alert('Please log in to place an order.');
+      setErrorMessage('Please log in to place an order.');
       return;
     }
   
     // Price breakdown
     const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const tax = subtotal * 0.18;  // Assuming 10% tax
+
+    // Calculate tax, ensure it's a number and rounded to 2 decimal places
+    const tax = parseFloat((subtotal * 0.18).toFixed(2));  // 18% tax
+
     const deliveryFee = 100;
     const tip = 0;  // Tip can be fetched from state
+
+    // Calculate total, ensuring everything is a number
     const total = subtotal + tax + deliveryFee + tip;
-  
+
     // Prepare the order data
     const orderData = {
       userId,
@@ -71,18 +78,19 @@ function CartPage() {
       const data = await response.json();
   
       if (response.ok) {
-        alert('Order placed successfully!');
+        setSuccessMessage('Order placed successfully!');
+        setErrorMessage(''); // Clear any previous errors
+        navigate('/orderHistory')
         clearCart(); // Optionally clear the cart after placing the order
       } else {
-        alert('Failed to place the order');
+        setErrorMessage('Failed to place the order');
         console.error('Order Error:', data);
       }
     } catch (error) {
-      alert('An error occurred while placing the order');
+      setErrorMessage('An error occurred while placing the order');
       console.error('Error:', error);
     }
   };
-  
 
   return (
     <div className="cart-page">
@@ -147,10 +155,14 @@ function CartPage() {
               />
             </label>
             <div><strong>Total: Rs. {total}</strong></div>
-            <></>
             <label>Delivery Address: <input className='address'></input></label>
-            <></>
             <button onClick={orderPlace}>Confirm Order</button>
+
+            {/* Inline Error Message */}
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
+
+            {/* Inline Success Message */}
+            {successMessage && <div className="success-message">{successMessage}</div>}
           </div>
         </div>
       </main>

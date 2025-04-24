@@ -26,6 +26,9 @@ function CartPage() {
   const backMenu = () =>{
     navigate("/Menu")
   }
+  const orderHistory = () =>{
+    navigate("/orderHistory")
+  }
 
   // const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
   // const tax = subtotal * 0.13;  // Assuming 13% tax
@@ -45,7 +48,11 @@ function CartPage() {
               className="empty-cart-icon" 
             />
             <p>You cannot order an empty cart. Please go back to our menu and find something to order.</p>
-            <button className="back-to-menu-btn" onClick={backMenu}>Go Back to Menu</button>
+            <div>
+              <button className="back-to-menu-btn" onClick={backMenu}>Go Back to Menu</button>    
+              <button className="back-to-menu-btn" onClick={orderHistory}>Check Order History</button> 
+            </div>
+
           </div>
         </div>
         

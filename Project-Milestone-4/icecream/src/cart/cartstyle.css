@@ -217,12 +217,30 @@
   cursor: pointer;
   font-size: 16px;
   margin-top: 20px;
+  margin-right: 25px;
   transition: background-color 0.3s ease;
+}
+
+.back-to-menu-btn:last-child {
+  margin-right: 0;  /* Optional: removes right margin for the last button */
 }
 
 .back-to-menu-btn:hover {
   background-color: #45a049;
 }
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.success-message {
+  color: green;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
 
 @media (max-width: 768px) {
   .cart-page .main-content {

@@ -40,22 +40,20 @@ const OrdersHistory = () => {
     }, []);
 
     const handleReorder = (order) => {
-        if (window.confirm(`Add all ${order.items.length} items from this order to your cart?`)) {
-            let addedCount = 0;
-            order.items.forEach(item => {
-                addToCart({
-                    name: item.name,
-                    price: item.price,
-                    img: item.image || './default-food.jpg',
-                    selectedBase: item.selectedBase,
-                    selectedToppings: item.selectedToppings
-                }, item.quantity);
-                addedCount += item.quantity;
-            });
-            
-            setSuccessMessage(`Added ${addedCount} items to your cart!`);
-            setTimeout(() => setSuccessMessage(null), 3000);
-        }
+        let addedCount = 0;
+        order.items.forEach(item => {
+            addToCart({
+                name: item.name,
+                price: item.price,
+                img: item.image || './default-food.jpg',
+                selectedBase: item.selectedBase,
+                selectedToppings: item.selectedToppings
+            }, item.quantity);
+            addedCount += item.quantity;
+        });
+        
+        setSuccessMessage(`Added ${addedCount} items to your cart!`);
+        setTimeout(() => setSuccessMessage(null), 3000); // Remove success message after 3 seconds
     };
 
     if (loading) {
@@ -147,7 +145,7 @@ const OrdersHistory = () => {
                                 </div>
                             ))}
                         </div>
-                        
+
                         <div className="price-breakdown">
                             <div>
                                 <span>Subtotal:</span>
