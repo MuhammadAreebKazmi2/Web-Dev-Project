@@ -9,7 +9,7 @@ const CreateAccount = () => {
   const [password, setPassword] = useState('');
   const [dob, setDob] = useState('');
   const [email, setEmail] = useState('');
-  const [editEnabled, setEditEnabled] = useState(false);
+  // const [editEnabled, setEditEnabled] = useState(false);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ const CreateAccount = () => {
       });
 
       console.log(res.data);
-      setEditEnabled(true);
+      // setEditEnabled(true);
 
       const loginInfo = {
         email,

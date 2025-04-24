@@ -1,44 +1,44 @@
-import React, { useState, useRef, useCallback } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa'; // Import user icon from react-icons
 import './Headerstyles.css';
 
 const Header = ({ cartItemCount }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+  // const [searchQuery, setSearchQuery] = useState('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [showAbout, setShowAbout] = useState(false);
-  const [showContact, setShowContact] = useState(false);
+  // const [showAbout, setShowAbout] = useState(false);
+  // const [showContact, setShowContact] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
-  const searchInputRef = useRef(null);
+  // const location = useLocation();
+  // const searchInputRef = useRef(null);
 
-  const isMenuPage = location.pathname === '/Menu';
+  // const isMenuPage = location.pathname === '/Menu';
   const isAuthenticated = localStorage.getItem('isAuthenticated');
 
   // const handleSearchChange = useCallback((e) => {
   //   setSearchQuery(e.target.value);
   // }, []);
 
-  const handleSearch = useCallback((event) => {
-    if (event.key === 'Enter') {
-      const query = searchQuery.toLowerCase().trim();
-      const items = document.querySelectorAll('.item h3');
-      let found = false;
+  // const handleSearch = useCallback((event) => {
+  //   if (event.key === 'Enter') {
+  //     const query = searchQuery.toLowerCase().trim();
+  //     const items = document.querySelectorAll('.item h3');
+  //     let found = false;
 
-      items.forEach(item => {
-        if (item.textContent.toLowerCase().includes(query)) {
-          item.closest('section').scrollIntoView({ behavior: 'smooth' });
-          found = true;
-        }
-      });
+  //     items.forEach(item => {
+  //       if (item.textContent.toLowerCase().includes(query)) {
+  //         item.closest('section').scrollIntoView({ behavior: 'smooth' });
+  //         found = true;
+  //       }
+  //     });
 
-      if (!found) {
-        alert('Item not found in the menu.');
-      }
-      searchInputRef.current?.focus();
-    }
-  }, [searchQuery]);
+  //     if (!found) {
+  //       alert('Item not found in the menu.');
+  //     }
+  //     searchInputRef.current?.focus();
+  //   }
+  // }, [searchQuery]);
 
   const handleCartClick = () => {
     if (!isAuthenticated) {
@@ -52,15 +52,15 @@ const Header = ({ cartItemCount }) => {
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
   const toggleUserDropdown = () => setShowUserDropdown(!showUserDropdown);
 
-  const handleAboutClick = () => {
-    setShowAbout(!showAbout);
-    setShowContact(false);
-  };
+  // const handleAboutClick = () => {
+  //   setShowAbout(!showAbout);
+  //   setShowContact(false);
+  // };
 
-  const handleContactClick = () => {
-    setShowContact(!showContact);
-    setShowAbout(false);
-  };
+  // const handleContactClick = () => {
+  //   setShowContact(!showContact);
+  //   setShowAbout(false);
+  // };
 
   const handleOrderHistoryClick = () => {
     if (!isAuthenticated) {

@@ -6,7 +6,9 @@ const EditAccount = () => {
   const [username, setUsername] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(true);
+  const [deleting, setDeleting] = useState(false); // Track delete action
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,7 +46,7 @@ const EditAccount = () => {
       setErrorMessage('Please enter a new password.');
       return;
     }
-  
+
     try {
       const userId = localStorage.getItem('userId');
       console.log('Attempting to update user:', userId); // Debug log
@@ -56,11 +58,12 @@ const EditAccount = () => {
           password: newPassword,
         }
       );
-  
+
       console.log('Update response:', response); // Debug log
       
       if (response.status === 200) {
-        alert('Account updated successfully');
+        setSuccessMessage('Account updated successfully');
+        setTimeout(() => setSuccessMessage(''), 5000); // Clear the success message after 5 seconds
         navigate('/Menu');
       }
     } catch (err) {
@@ -71,10 +74,8 @@ const EditAccount = () => {
   };
 
   const handleDelete = async () => {
-    if (!window.confirm('Are you sure you want to delete your account?')) {
-      return;
-    }
-  
+    setDeleting(true); // Show loading while deleting
+    
     try {
       const userId = localStorage.getItem('userId');
       console.log('Attempting to delete user:', userId); // Debug log
@@ -86,9 +87,9 @@ const EditAccount = () => {
       console.log('Delete response:', response); // Debug log
       
       if (response.status === 200) {
-        alert('Account deleted successfully');
+        setSuccessMessage('Account deleted successfully');
         localStorage.clear();
-        navigate('/Home');
+        setTimeout(() => navigate('/Home'), 3000); // Redirect to home after 3 seconds
       }
     } catch (err) {
       console.error('Full delete error:', err);
@@ -102,10 +103,17 @@ const EditAccount = () => {
   }
 
   return (
-    <div style={{ maxWidth: '500px', height:'73vh', margin: '0 auto', padding: '20px' }}>
+    <div style={{ maxWidth: '500px', height: '73vh', margin: '0 auto', padding: '20px' }}>
       <h2>Edit Account</h2>
+
+      {/* Show Error Message */}
       {errorMessage && (
         <div style={{ color: 'red', marginBottom: '15px' }}>{errorMessage}</div>
+      )}
+
+      {/* Show Success Message */}
+      {successMessage && (
+        <div style={{ color: 'green', marginBottom: '15px' }}>{successMessage}</div>
       )}
 
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
@@ -151,6 +159,7 @@ const EditAccount = () => {
         </button>
       </form>
 
+      {/* Delete Account Button */}
       <button 
         onClick={handleDelete} 
         style={{ 
@@ -163,7 +172,7 @@ const EditAccount = () => {
           width: '100%'
         }}
       >
-        Delete Account
+        {deleting ? 'Deleting...' : 'Delete Account'}
       </button>
     </div>
   );

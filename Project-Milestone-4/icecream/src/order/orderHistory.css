@@ -1,3 +1,4 @@
+/* General Styles */
 .orders-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -12,7 +13,7 @@
 
 .orders-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Flexibility for large screens */
   gap: 20px;
 }
 
@@ -25,6 +26,11 @@
   flex-direction: column;
   max-height: 400px; /* Fixed height for scroll */
   overflow: hidden; /* Ensures content doesn't overflow */
+  transition: transform 0.2s ease-in-out;
+}
+
+.order-card:hover {
+  transform: scale(1.02); /* Slight scale effect on hover */
 }
 
 .order-header {
@@ -40,25 +46,6 @@
   flex-grow: 1; /* Takes remaining space */
   overflow-y: auto; /* Enables vertical scrolling */
   padding-right: 5px; /* Prevents scrollbar from overlapping content */
-}
-
-/* Custom scrollbar styling */
-.order-items::-webkit-scrollbar {
-  width: 6px;
-}
-
-.order-items::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 3px;
-}
-
-.order-items::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 3px;
-}
-
-.order-items::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 
 .order-item {
@@ -78,10 +65,7 @@
   padding-top: 10px;
   border-top: 1px solid #eee;
   font-size: 12px;
-  /* flex-wrap: wrap; */
 }
-
-/* Rest of your existing styles... */
 
 .item-image {
   width: 20%; /* Set the width of the image container to 20% of the order item container */
@@ -98,7 +82,6 @@
   object-fit: contain; /* Ensures the image is scaled correctly */
   max-height: 100px; /* Optional: limit the maximum height */
 }
-
 
 .image-placeholder {
   width: 100%;
@@ -139,7 +122,6 @@
   font-size: 14px;
   color: #333;
 }
-
 
 .loading, .error {
   text-align: center;
@@ -186,4 +168,120 @@
 .reorder-btn:disabled {
   background-color: #c5e1a5;  /* Disabled state with lighter green */
   cursor: not-allowed;  /* Show not-allowed cursor */
+}
+
+.no-orders {
+  height: 75.5vh;
+}
+
+.no-orders button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+/* --- Mobile and Tablet Responsiveness --- */
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .orders-list {
+    grid-template-columns: 1fr;  /* Stack all order cards vertically */
+    gap: 15px; /* Reduced gap for smaller screens */
+  }
+
+  .order-card {
+    padding: 15px;  /* Reduced padding for mobile screens */
+    max-height: none;  /* Remove max-height for better content visibility */
+  }
+
+  .order-item {
+    flex-direction: column;  /* Stack the image and details vertically */
+    align-items: center;  /* Center align items */
+  }
+
+  .item-image {
+    width: 80px;  /* Adjust image container size */
+    height: 80px;  /* Adjust height for smaller images */
+    margin-right: 0;
+    margin-bottom: 10px;  /* Space between image and text */
+  }
+
+  .item-image img {
+    max-width: 80px;  /* Restrict the image size */
+    max-height: 80px;  /* Restrict the image height */
+    object-fit: contain;  /* Ensures the image fits the container */
+  }
+
+  .item-details h4 {
+    font-size: 16px;  /* Reduce font size for mobile */
+  }
+
+  .item-details p {
+    font-size: 12px;  /* Reduce font size for mobile */
+  }
+
+  .order-footer {
+    font-size: 12px;  /* Reduce font size for footer */
+  }
+
+  .order-total {
+    font-size: 14px;  /* Reduce font size for mobile */
+  }
+
+  .reorder-btn {
+    padding: 8px 15px;  /* Adjust button size for mobile */
+    font-size: 14px;  /* Smaller font size for mobile */
+  }
+
+  /* Adjust margins for mobile screens */
+  .order-header {
+    flex-direction: column;  /* Stack the header items vertically */
+    align-items: flex-start;  /* Align to the left */
+  }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 480px) {
+  .orders-list {
+    gap: 10px;  /* Further reduce gap for smaller screens */
+  }
+
+  .order-card {
+    padding: 12px;  /* Smaller padding for extra small screens */
+  }
+
+  .item-details h4 {
+    font-size: 14px;  /* Reduce font size even more for smaller screens */
+  }
+
+  .item-details p {
+    font-size: 10px;  /* Reduce font size even more for smaller screens */
+  }
+
+  .order-footer {
+    font-size: 10px;  /* Even smaller font size for footer */
+  }
+
+  .order-total {
+    font-size: 12px;  /* Smaller font size for mobile */
+  }
+
+  .reorder-btn {
+    padding: 6px 12px;  /* Adjust button padding for extra small screens */
+    font-size: 12px;  /* Reduce font size for extra small screens */
+  }
+
+  .no-orders {
+    height: 68vh;
+  }
+  
+  .no-orders button {
+    padding: 6px 12px;  /* Adjust button padding for extra small screens */
+    font-size: 20px;  /* Reduce font size for extra small screens */
+  }
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom'; 
 import './ItemModal.css';
-import { useCart } from './CartContext'; 
+import { useCart } from '../cart/CartContext'; 
 import { useNavigate } from "react-router-dom";
 
 const ItemModal = ({ setCartItemCount }) => {

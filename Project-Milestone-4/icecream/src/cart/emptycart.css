@@ -42,14 +42,15 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 600px; /* Ensure it doesn't stretch too wide */
+  max-width: 600px;
   margin: 0 auto; /* Center the container */
+  height:74vh;
 }
 
 .empty-cart-message p {
   font-size: 18px;
   color: #333;
-  margin-top: 20px;
+  margin-top: 10px;
   line-height: 1.5;
 }
 
@@ -112,30 +113,30 @@
     justify-content: space-between; /* Space out the content */
   }
 
-  .sidebar.open {
+  /* .sidebar.open {
     transform: translateX(0);
-  }
+  } */
 
-  .menu-icon {
+  /* .menu-icon {
     display: block;
     font-size: 30px;
     color: #333;
     z-index: 1100;
     cursor: pointer;
   }
-
+ */
   /* Adjust Nav Links inside Sidebar */
-  .sidebar ul {
+  /* .sidebar ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
+  } */
 
   /* Sidebar Links */
-  .sidebar ul li a {
+  /* .sidebar ul li a {
     display: block;
     color: #333;
     text-decoration: none;
@@ -143,14 +144,14 @@
     font-size: 20px;
     text-align: center;
   }
-}
+} */
 
 /* Desktop View (Min-width 769px) */
-@media (max-width: 380px) {
+@media (max-width: 480px) {
   .empty-cart-container {
     padding: 10px;
-    width: 90%; /* Reduce container width on very small screens */
-    height: auto; /* Ensure container is not forced to fill the entire height */
+    width: 100%; /* Reduce container width on very small screens */
+    height: 80vh; /* Ensure container is not forced to fill the entire height */
   }
 
   .empty-cart-message p {
@@ -167,4 +168,4 @@
     font-size: 14px;
     width: 100%; /* Button takes up full width */
   }
-}
+}}
