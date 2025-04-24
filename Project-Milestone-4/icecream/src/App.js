@@ -1,29 +1,24 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { CartProvider } from './cart/CartContext';
-import MenuComponent from './menu/AreebMenuComponent';
-import SweetTreats from './login-signup/home';
-import CreateAccount from './login-signup/CreateAccount';
-import CartPage from './cart/cartPage';
-import ItemModal from './menu/ItemModal';
-import EmptyCart from './cart/emptycart';
-import OrderHistory from './order/orderHistory';
-import EditAccount from './editAccount';
-import Header from './nav/Header';
-import Footer from './nav/Footer';
-// import Sidebar from './nav/Sidebar';  // Import Sidebar Component
+import { CartProvider } from './CartContext';
+// import MenuComponent from './MenuComponent';
+import MenuComponent from './AreebMenuComponent';
+import SweetTreats from './home';
+import CreateAccount from './CreateAccount';
+import CartPage from './cartPage';
+import ItemModal from './ItemModal';
+import EmptyCart from './emptycart';
+import OrderHistory from './orderHistory'
+import EditAccount from './editAccount';  // Import the new component
+import OrderReceived from './orderReceived';
+import Header from './Header';
+import Footer from './Footer';
+
 
 const App = () => {
-  // const [sidebarOpen, setSidebarOpen] = useState(false); // State to toggle sidebar visibility
-
-  // const toggleSidebar = () => {
-  //   setSidebarOpen(!sidebarOpen); // Toggle sidebar visibility
-  // };
-
   return (
     <CartProvider>
       <Header />
-
       <Routes>
         <Route path="/Home" element={<SweetTreats />} />  
         <Route path="/CreateAccount" element={<CreateAccount />} />  
@@ -33,10 +28,10 @@ const App = () => {
         <Route path="/emptycart" element={<EmptyCart />} />
         <Route path="/ItemModal" element={<ItemModal />} />
         <Route path="/OrderHistory" element={<OrderHistory />} />
-        <Route path="/EditAccount" element={<EditAccount />} /> 
+        <Route path="/EditAccount" element={<EditAccount/>} /> 
+        <Route path="/orderreceived" element={<OrderReceived />} />
       </Routes>
-
-      <Footer />
+      <Footer/>
     </CartProvider>
   );
 };
