@@ -12,6 +12,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
+const cors = require('cors');
+app.use(cors({ origin: 'https://web-dev-project-peach.vercel.app' }));
 app.use(bodyParser.json());
 
 // Routes
