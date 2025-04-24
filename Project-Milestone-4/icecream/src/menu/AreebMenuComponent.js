@@ -11,7 +11,7 @@ const MenuComponent = () => {
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/menu/menu');
+        const response = await fetch('http://backend-eight-kohl-24.vercel.app/api/menu/menu');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
