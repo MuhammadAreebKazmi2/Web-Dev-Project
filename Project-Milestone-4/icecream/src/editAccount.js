@@ -62,16 +62,15 @@ const EditAccount = () => {
       console.log('Update response:', response); // Debug log
       
       if (response.status === 200) {
-        setSuccessMessage('Account updated successfully');
+        setSuccessMessage('Password updated successfully'); // Show success message inline
         setTimeout(() => setSuccessMessage(''), 5000); // Clear the success message after 5 seconds
-        navigate('/Menu');
       }
     } catch (err) {
       console.error('Full update error:', err);
       console.error('Error response:', err.response);
       setErrorMessage(err.response?.data?.message || 'Failed to update account');
     }
-  };
+};
 
   const handleDelete = async () => {
     setDeleting(true); // Show loading while deleting
@@ -89,7 +88,7 @@ const EditAccount = () => {
       if (response.status === 200) {
         setSuccessMessage('Account deleted successfully');
         localStorage.clear();
-        setTimeout(() => navigate('/Home'), 3000); // Redirect to home after 3 seconds
+        setTimeout(() => navigate('/Home'), 5000); // Redirect to home after 3 seconds
       }
     } catch (err) {
       console.error('Full delete error:', err);
@@ -104,77 +103,78 @@ const EditAccount = () => {
 
   return (
     <div style={{ maxWidth: '500px', height: '73vh', margin: '0 auto', padding: '20px' }}>
-      <h2>Edit Account</h2>
+  <h2>Edit Account</h2>
 
-      {/* Show Error Message */}
-      {errorMessage && (
-        <div style={{ color: 'red', marginBottom: '15px' }}>{errorMessage}</div>
-      )}
+  {/* Show Error Message */}
+  {errorMessage && (
+    <div style={{ color: 'red', marginBottom: '15px' }}>{errorMessage}</div>
+  )}
 
-      {/* Show Success Message */}
-      {successMessage && (
-        <div style={{ color: 'green', marginBottom: '15px' }}>{successMessage}</div>
-      )}
+  {/* Show Success Message Inline */}
+  {successMessage && (
+    <div style={{ color: 'green', marginBottom: '15px' }}>{successMessage}</div>
+  )}
 
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-        <div>
-          <label htmlFor="username" style={{ display: 'block', marginBottom: '5px' }}>
-            Username
-          </label>
-          <input
-            type="text"
-            id="username"
-            value={username}  // Controlled input, value is from state
-            onChange={(e) => setUsername(e.target.value)}  // Update state when input changes
-            style={{ width: '100%', padding: '8px' }}
-            disabled  // Prevent the username from being edited
-          />
-        </div>
-
-        <div>
-          <label htmlFor="newPassword" style={{ display: 'block', marginBottom: '5px' }}>
-            New Password
-          </label>
-          <input
-            type="password"
-            id="newPassword"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-            required
-            style={{ width: '100%', padding: '8px' }}
-          />
-        </div>
-
-        <button 
-          type="submit" 
-          style={{ 
-            padding: '10px', 
-            backgroundColor: '#4CAF50', 
-            color: 'white', 
-            border: 'none', 
-            cursor: 'pointer' 
-          }}
-        >
-          Update Account
-        </button>
-      </form>
-
-      {/* Delete Account Button */}
-      <button 
-        onClick={handleDelete} 
-        style={{ 
-          marginTop: '20px', 
-          padding: '10px',
-          backgroundColor: '#f44336', 
-          color: 'white', 
-          border: 'none', 
-          cursor: 'pointer',
-          width: '100%'
-        }}
-      >
-        {deleting ? 'Deleting...' : 'Delete Account'}
-      </button>
+  <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+    <div>
+      <label htmlFor="username" style={{ display: 'block', marginBottom: '5px' }}>
+        Username
+      </label>
+      <input
+        type="text"
+        id="username"
+        value={username}  // Controlled input, value is from state
+        onChange={(e) => setUsername(e.target.value)}  // Update state when input changes
+        style={{ width: '100%', padding: '8px' }}
+        disabled  // Prevent the username from being edited
+      />
     </div>
+
+    <div>
+      <label htmlFor="newPassword" style={{ display: 'block', marginBottom: '5px' }}>
+        New Password
+      </label>
+      <input
+        type="password"
+        id="newPassword"
+        value={newPassword}
+        onChange={(e) => setNewPassword(e.target.value)}
+        required
+        style={{ width: '100%', padding: '8px' }}
+      />
+    </div>
+
+    <button 
+      type="submit" 
+      style={{ 
+        padding: '10px', 
+        backgroundColor: '#4CAF50', 
+        color: 'white', 
+        border: 'none', 
+        cursor: 'pointer' 
+      }}
+    >
+      Update Account
+    </button>
+  </form>
+
+  {/* Delete Account Button */}
+  <button 
+    onClick={handleDelete} 
+    style={{ 
+      marginTop: '20px', 
+      padding: '10px',
+      backgroundColor: '#f44336', 
+      color: 'white', 
+      border: 'none', 
+      cursor: 'pointer',
+      width: '100%'
+    }}
+  >
+    {deleting ? 'Deleting...' : 'Delete Account'}
+  </button>
+</div>
+
   );
 };
 
