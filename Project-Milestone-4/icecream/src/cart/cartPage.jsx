@@ -76,7 +76,7 @@ function CartPage() {
       const data = await response.json();
   
       if (response.ok) {
-        navigate('/orderreceived');
+        navigate('/emptycart');
       } else {
         alert('Failed to place the order');
         console.error('Order Error:', data);
